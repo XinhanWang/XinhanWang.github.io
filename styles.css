@@ -391,6 +391,26 @@ body {
     color: var(--primary-color);
 }
 
+/* PyTorch 图标样式 */
+.pytorch-icon {
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: #EE4C2C;
+    position: relative;
+}
+
+.pytorch-icon::before {
+    content: "🔥";
+    font-size: 2.5rem;
+}
+
+/* Git 图标样式 */
+.git-icon {
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: #F05032;
+}
+
 .skill-tag {
     background: var(--gradient);
     color: white;
@@ -498,6 +518,10 @@ body {
 
 .contact-link i {
     font-size: 1.2rem;
+}
+
+.contact-link .fa-bilibili {
+    font-size: 1.3rem;
 }
 
 /* Footer */
