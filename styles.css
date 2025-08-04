@@ -592,6 +592,21 @@ body {
     padding: 2rem 0;
 }
 
+.lottie-footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px; /* 动画之间的间距，可根据实际调整 */
+    margin-top: 32px;
+    margin-bottom: 0;
+}
+
+.lottie-footer-row > div {
+    /* 保证动画容器宽高一致，去除 margin */
+    width: 120px;
+    height: 120px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {

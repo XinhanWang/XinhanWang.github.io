@@ -201,11 +201,15 @@
             <div class="container">
                 <h2 class="section-title">GitHub Stats <i class="fab fa-github" aria-hidden="true"></i></h2>
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <img src="https://github-readme-stats.vercel.app/api?username=XinhanWang&theme=tokyonight&hide_border=true" alt="GitHub Stats">
+                    <div class="stat-card" style="background:none;box-shadow:none;">
+                        <img src="https://github-readme-stats.vercel.app/api?username=XinhanWang&theme=tokyonight&hide_border=true"
+                             alt="GitHub Stats"
+                             style="box-shadow:none;border:none;background:none;">
                     </div>
-                    <div class="stat-card">
-                        <img src="https://api.star-history.com/svg?repos=XinhanWang/XinhanWang&type=Date&theme=dark" alt="Star History">
+                    <div class="stat-card" style="background:none;box-shadow:none;">
+                        <img src="https://api.star-history.com/svg?repos=XinhanWang/XinhanWang&type=Date&theme=dark"
+                             alt="Star History"
+                             style="box-shadow:none;border:none;background:none;">
                     </div>
                 </div>
             </div>
@@ -238,11 +242,44 @@
         </section>
   
         <!-- .train-container train animation removed -->
+
+        <!-- Lottie animation container 并排显示 -->
+        <div class="lottie-footer-row">
+            <div id="lottie-footer" style="width:120px;height:120px;"></div>
+            <div id="lottie-footer-2" style="width:120px;height:120px;"></div>
+            <div id="lottie-footer-3" style="width:120px;height:120px;"></div>
+        </div>
   
     <footer class="footer">
         <p>&copy; 2025 Xinhan Wang. Thanks to everyone who supports and encourages me. You make me better. 💕</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      lottie.loadAnimation({
+        container: document.getElementById('lottie-footer'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://lottie.host/6d6f0ec1-739d-4bee-b0f3-9c6921d0d933/lgJcPsehHR.json' // 可替换为你喜欢的动画
+      });
+      // 新增动画1
+      lottie.loadAnimation({
+        container: document.getElementById('lottie-footer-2'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://lottie.host/b0c68ac5-8dd8-4c59-8249-d221830d1892/f3Pn9IcQuu.json'
+      });
+      // 新增动画2
+      lottie.loadAnimation({
+        container: document.getElementById('lottie-footer-3'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://lottie.host/cb9281e4-3fb3-4c29-8554-a0cc4a68408d/Ag9l9EnTD8.json'
+      });
+    </script>
 </body>
 </html>
