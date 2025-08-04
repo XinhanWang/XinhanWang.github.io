@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="王心瀚的个人主页。华中科技大学人工智能博士生，专注于深度神经网络安全研究。">
     <title>王心瀚 - 个人主页</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: 'Noto Sans SC', sans-serif;">
+<body>
     <header class="header">
         <nav class="nav">
             <div class="nav-container">
@@ -21,11 +22,11 @@
                     <li><a href="#contact">联系</a></li>
                     <li><a href="en.html">English</a></li>
                 </ul>
-                <div class="hamburger">
+                <button class="hamburger" aria-label="打开菜单">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -44,7 +45,7 @@
                     <p class="hero-description">专注于深度神经网络的安全问题研究，热爱编程与技术创新</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">联系我</a>
-                        <a href="Undergraduate_Resume.pptx" class="btn btn-secondary">查看简历</a>
+                        <a href="Undergraduate_Resume.pptx" class="btn btn-secondary" download>查看简历</a>
                     </div>
                 </div>
                 <!-- 为了与英文版保持结构一致 -->
@@ -55,7 +56,7 @@
 
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">关于我 <i class="fas fa-user"></i></h2>
+                <h2 class="section-title">关于我 <i class="fas fa-user" aria-hidden="true"></i></h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p>我是华中科技大学人工智能与自动化学院的博士生，专注于人工智能技术研发与创新。我热爱编程 💻，对新兴技术充满好奇心，始终保持学习的热情，乐于接受新的挑战。</p>
@@ -70,7 +71,7 @@
 
         <section id="education" class="section section-alt">
             <div class="container">
-                <h2 class="section-title">教育背景 <i class="fas fa-graduation-cap"></i></h2>
+                <h2 class="section-title">教育背景 <i class="fas fa-graduation-cap" aria-hidden="true"></i></h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
@@ -96,26 +97,26 @@
 
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">技术技能 <i class="fas fa-code"></i></h2>
+                <h2 class="section-title">技术技能 <i class="fas fa-code" aria-hidden="true"></i></h2>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3><i class="fas fa-laptop-code"></i> 编程语言</h3>
+                        <h3><i class="fas fa-laptop-code" aria-hidden="true"></i> 编程语言</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">C</span>
+                            <span class="skill-tag"><img src="imgs/python.png" alt="Python" class="skill-icon">Python</span>
+                            <span class="skill-tag"><img src="imgs/c.png" alt="C" class="skill-icon">C</span>
                             <span class="skill-tag">汇编语言</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3><i class="fas fa-brain"></i> 深度学习</h3>
+                        <h3><i class="fas fa-brain" aria-hidden="true"></i> 深度学习</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag"><img src="imgs/pytorch.png" alt="PyTorch" class="skill-icon">PyTorch</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> 工具</h3>
+                        <h3><i class="fas fa-tools" aria-hidden="true"></i> 工具</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag"><img src="imgs/git.png" alt="Git" class="skill-icon">Git</span>
                         </div>
                     </div>
                 </div>
@@ -124,16 +125,16 @@
 
         <section id="awards" class="section section-alt">
             <div class="container">
-                <h2 class="section-title">荣誉与奖项 <i class="fas fa-trophy"></i></h2>
+                <h2 class="section-title">荣誉与奖项 <i class="fas fa-trophy" aria-hidden="true"></i></h2>
                 <div class="awards-grid">
                     <div class="award-card">
                         <div class="award-icon">🏆</div>
-                        <h3>国家奖学金</h3>
+                        <h3><a href="https://mp.weixin.qq.com/s/HyFy0cX5-SmFw74WtmvnmA" target="_blank">国家奖学金</a></h3>
                         <p>2023-2024年度</p>
                     </div>
                     <div class="award-card">
                         <div class="award-icon">⭐</div>
-                        <h3>本科特优生</h3>
+                        <h3><a href="https://mp.weixin.qq.com/s/ZUBUopNwVFiQtTc9j0EQtQ" target="_blank">本科特优生</a></h3>
                         <p>华中科技大学</p>
                     </div>
                     <div class="award-card">
@@ -143,7 +144,7 @@
                     </div>
                     <div class="award-card">
                         <div class="award-icon">🤖</div>
-                        <h3>机器人大赛二等奖</h3>
+                        <h3><a href="https://mp.weixin.qq.com/s/NmCMvNaRvcoFTM4nQTWxZw" target="_blank">机器人大赛二等奖</a></h3>
                         <p>"杉川杯"华中科技大学</p>
                     </div>
                 </div>
@@ -152,7 +153,7 @@
 
         <section id="github-stats" class="section">
             <div class="container">
-                <h2 class="section-title">GitHub 统计 <i class="fab fa-github"></i></h2>
+                <h2 class="section-title">GitHub 统计 <i class="fab fa-github" aria-hidden="true"></i></h2>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <img src="https://github-readme-stats.vercel.app/api?username=XinhanWang&locale=cn&theme=tokyonight&hide_border=true" alt="GitHub统计">
@@ -166,22 +167,22 @@
 
         <section id="contact" class="section section-alt">
             <div class="container">
-                <h2 class="section-title">联系我 <i class="fas fa-envelope"></i></h2>
+                <h2 class="section-title">联系我 <i class="fas fa-envelope" aria-hidden="true"></i></h2>
                 <div class="contact-content">
                     <div class="contact-info">
                         <h3>让我们一起创造精彩！</h3>
                         <p>如果您对我的工作感兴趣或希望与我合作，欢迎随时联系我。</p>
                         <div class="contact-links">
                             <a href="https://github.com/XinhanWang" class="contact-link">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-github" aria-hidden="true"></i>
                                 <span>GitHub</span>
                             </a>
                             <a href="mailto:2335718423@qq.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
                                 <span>邮箱</span>
                             </a>
                             <a href="https://space.bilibili.com/3493117040790362" class="contact-link">
-                                <i class="fas fa-tv"></i>
+                                <img src="imgs/Bilibili.png" alt="Bilibili" class="contact-icon">
                                 <span>哔哩哔哩</span>
                             </a>
                         </div>
