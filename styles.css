@@ -496,17 +496,30 @@ body {
 
 /* GitHub Stats */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* 垂直居中所有 stat-card */
     gap: 2rem;
-    justify-items: center;
 }
 
-.stat-card img {
+.stat-card {
+    display: flex;
+    align-items: center; /* 垂直居中图片 */
+    justify-content: center;
+    min-height: 220px; /* 可根据实际图片高度调整 */
     width: 100%;
     max-width: 500px;
     border-radius: 15px;
     box-shadow: var(--shadow);
+}
+
+.stat-card img {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Contact */
