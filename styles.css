@@ -382,7 +382,29 @@ body {
 }
 
 .skill-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* PyTorch 图标样式 */
+.pytorch-icon {
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: #EE4C2C;
+    position: relative;
+}
+
+.pytorch-icon::before {
+    content: "🔥";
+    font-size: 2.5rem;
+}
+
+/* Git 图标样式 */
+.git-icon {
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: #F05032;
 }
 
 .skill-label {
@@ -423,33 +445,6 @@ body {
     justify-content: center;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-/* 替换为 Font Awesome 图标样式 */
-.skill-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
-    color: var(--primary-color);
-}
-
-/* PyTorch 图标样式 */
-.pytorch-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
-    color: #EE4C2C;
-    position: relative;
-}
-
-.pytorch-icon::before {
-    content: "🔥";
-    font-size: 2.5rem;
-}
-
-/* Git 图标样式 */
-.git-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
-    color: #F05032;
 }
 
 .skill-tag {
@@ -567,15 +562,12 @@ body {
 
 /* 品牌色覆盖 */
 .contact-link.github {
-    /* background: var(--github-color) !important; */
     color: var(--github-color) !important;
 }
 .contact-link.email {
-    /* background: var(--email-color) !important; */
     color: var(--email-color) !important;
 }
 .contact-link.bilibili {
-    /* background: var(--bilibili-color) !重要; */
     color: var(--bilibili-color) !important;
 }
 
@@ -639,9 +631,6 @@ body {
     
     .hero-video {
         object-fit: cover;
-    }
-    
-    .hero-video {
         display: none;
     }
     
@@ -690,106 +679,8 @@ body {
 .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
 .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
 
-
 /* 修改：统一所有超链接状态样式，无下划线并继承文本颜色 */
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
-}
-
-/* 火车行驶动画优化 */
-.train-container {
-  position: relative;
-  width: 100%;
-  height: 100px; /* 更紧凑的高度 */
-  overflow: hidden;
-}
-
-/* 高铁主结构：流线型头部+车厢 */
-.train {
-  position: absolute;
-  bottom: 20px;
-  left: -420px; /* 从左侧外部开始 */
-  display: flex;
-  align-items: flex-end;
-  height: 60px;
-  /* 提高速度：动画时长缩短为4s */
-  animation: trainMove 4s linear infinite;
-  z-index: 2;
-}
-
-/* 头部流线型 */
-.train-head {
-  width: 60px;
-  height: 60px;
-  background: #333;
-  border-radius: 60px 30px 20px 60px / 60px 30px 20px 60px;
-  clip-path: ellipse(60px 30px at 30px 30px);
-  position: relative;
-  z-index: 3;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
-}
-
-/* 车厢流线型，无缝连接 */
-.train-car {
-  width: 80px;
-  height: 48px;
-  background: #444;
-  margin-left: -8px; /* 轻微重叠实现无缝 */
-  border-radius: 24px 24px 18px 18px / 24px 24px 18px 18px;
-  position: relative;
-  z-index: 2;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.10);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 车窗 */
-.train-window {
-  width: 16px;
-  height: 16px;
-  background: #e0e7ef;
-  border-radius: 6px;
-  margin: 0 4px;
-  box-shadow: 0 0 2px #aaa;
-  opacity: 0.85;
-  display: inline-block;
-}
-
-/* 车轮 */
-.train-wheel {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: #222;
-  border-radius: 50%;
-  bottom: -10px;
-  z-index: 1;
-  box-shadow: 0 2px 4px #0002;
-}
-.train-wheel.w1 { left: 18px; }
-.train-wheel.w2 { left: 50px; }
-.train-wheel.w3 { left: 98px; }
-.train-wheel.w4 { left: 130px; }
-.train-wheel.w5 { left: 178px; }
-.train-wheel.w6 { left: 210px; }
-.train-wheel.w7 { left: 258px; }
-.train-wheel.w8 { left: 290px; }
-
-/* 反向行驶高铁（对开） */
-.train.reverse {
-  left: 100%;
-  animation: trainMoveReverse 4s linear infinite;
-  flex-direction: row-reverse;
-}
-
-/* 动画关键帧：速度提升 */
-@keyframes trainMove {
-  from { left: -420px; }
-  to   { left: 100%; }
-}
-@keyframes trainMoveReverse {
-  from { left: 100%; }
-  to   { left: -420px; }
 }
