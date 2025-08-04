@@ -552,6 +552,10 @@ body {
     }
     
     .hero-video {
+        object-fit: cover;
+    }
+    
+    .hero-video {
         display: none;
     }
     
