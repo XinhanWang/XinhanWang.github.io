@@ -385,6 +385,8 @@ body {
     box-shadow: var(--shadow);
     text-align: center;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-category:hover {
@@ -406,6 +408,8 @@ body {
     flex-wrap: wrap;
     gap: 0.8rem;
     justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* 替换为 Font Awesome 图标样式 */
@@ -658,3 +662,13 @@ body {
 .hero-text > *:nth-child(2) { animation-delay: 0.2s; }
 .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
 .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* 全局超链接样式：与文本一致，无下划线 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
