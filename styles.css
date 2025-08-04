@@ -354,6 +354,30 @@ body {
     margin: 0 auto;
 }
 
+.skills-grid .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.skill-icon {
+    font-size: 2rem;
+}
+
+.skill-label {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 .skill-category {
     background: var(--card-bg);
     padding: 2rem;

@@ -11,7 +11,7 @@
           href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@7.x/css/all.css" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- 引入 Devicon，用于 PyTorch 图标 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
     <header class="header">
@@ -106,23 +106,40 @@
                     <div class="skill-category">
                         <h3><i class="fas fa-laptop-code" aria-hidden="true"></i> 编程语言</h3>
                         <div class="skill-tags">
-                            <i class="fab fa-python skill-icon" title="Python" aria-hidden="true"></i>
-                            <i class="devicon-c-plain colored skill-icon" title="C" aria-hidden="true"></i>
-                            <i class="devicon-cplusplus-plain colored skill-icon" title="C++" aria-hidden="true"></i>
-                            <i class="devicon-nasm-original colored skill-icon" title="Assembly" aria-hidden="true"></i>
+                            <div class="skill-item">
+                                <i class="fab fa-python skill-icon" aria-hidden="true"></i>
+                                <span class="skill-label">Python</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="devicon-c-plain colored skill-icon" aria-hidden="true"></i>
+                                <span class="skill-label">C</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="devicon-cplusplus-plain colored skill-icon" aria-hidden="true"></i>
+                                <span class="skill-label">C++</span>
+                            </div>
+                            <div class="skill-item">
+                                <i class="devicon-nasm-original colored skill-icon" aria-hidden="true"></i>
+                                <span class="skill-label">Assembly</span>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-category">
                         <h3><i class="fas fa-brain" aria-hidden="true"></i> 深度学习</h3>
                         <div class="skill-tags">
-                            <!-- 使用 Devicon 的 PyTorch 原始图标 -->
-                            <i class="devicon-pytorch-original colored skill-icon" title="PyTorch" aria-hidden="true"></i>
+                            <div class="skill-item">
+                                <i class="devicon-pytorch-plain-wordmark colored skill-icon" aria-hidden="true"></i>
+                                <span class="skill-label">PyTorch</span>
+                            </div>
                         </div>
                     </div>
                     <div class="skill-category">
                         <h3><i class="fas fa-tools" aria-hidden="true"></i> 工具</h3>
                         <div class="skill-tags">
-                            <i class="fab fa-git-alt git-icon" title="Git"></i>
+                            <div class="skill-item">
+                                <i class="fab fa-git-alt git-icon" aria-hidden="true"></i>
+                                <span class="skill-label">Git</span>
+                            </div>
                         </div>
                     </div>
                 </div>
