@@ -384,6 +384,13 @@ body {
     justify-content: center;
 }
 
+/* 替换为 Font Awesome 图标样式 */
+.skill-icon {
+    font-size: 2.5rem;
+    margin: 0.5rem;
+    color: var(--primary-color);
+}
+
 .skill-tag {
     background: var(--gradient);
     color: white;
