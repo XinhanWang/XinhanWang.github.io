@@ -697,28 +697,41 @@ a, a:visited, a:hover, a:active {
     color: inherit;
 }
 
-/* 火车行驶动画 */
+/* 火车行驶动画优化 */
 .train-container {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 120px; /* 适应高铁车体 + 车轮 */
   overflow: hidden;
 }
 
 .train {
   position: absolute;
   bottom: 10px;
-  left: -200px;
-  width: 200px;
+  left: -360px; /* 从左侧外部开始 */
+  width: 300px;
   height: 60px;
   background: #333;
-  border-radius: 10px;
+  border-radius: 30px 10px 10px 30px;
   animation: trainMove 8s linear infinite;
 }
 
+/* 前两节车厢 */
 .train::before,
 .train::after {
   content: '';
+  position: absolute;
+  bottom: 0;
+  width: 260px;
+  height: 60px;
+  background: #444;
+  border-radius: 10px;
+}
+.train::before { left: -280px; }   /* 第一节车厢 */
+.train::after  { left: -560px; }   /* 第二节车厢 */
+
+/* 多个车轮 */
+.train-wheel {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -726,11 +739,24 @@ a, a:visited, a:hover, a:active {
   border-radius: 50%;
   bottom: -12px;
 }
+.train-wheel:nth-child(1) { left: 20px; }
+.train-wheel:nth-child(2) { left: 80px; }
+.train-wheel:nth-child(3) { left: 140px; }
+.train-wheel:nth-child(4) { left: 200px; }
 
-.train::before { left: 20px; }
-.train::after  { left: 80px; }
+/* 反向行驶高铁（对开） */
+.train.reverse {
+  left: 100%;
+  animation: trainMoveReverse 8s linear infinite;
+}
+/* 车厢和车轮同上，无需重复声明 */
 
+/* 动画关键帧 */
 @keyframes trainMove {
-  from { left: -200px; }
+  from { left: -360px; }
   to   { left: 100%; }
+}
+@keyframes trainMoveReverse {
+  from { left: 100%; }
+  to   { left: -360px; }
 }
