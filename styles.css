@@ -368,6 +368,16 @@ body {
     width: 80px;
 }
 
+/* 新增：技能项内链接样式 */
+.skill-item > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
 .skill-icon {
     font-size: 2rem;
 }
@@ -663,12 +673,9 @@ body {
 .hero-text > *:nth-child(3) { animation-delay: 0.3s; }
 .hero-text > *:nth-child(4) { animation-delay: 0.4s; }
 
-/* 全局超链接样式：与文本一致，无下划线 */
-a {
+
+/* 修改：统一所有超链接状态样式，无下划线并继承文本颜色 */
+a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
-}
-
-a:hover {
-    text-decoration: none;
 }
