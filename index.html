@@ -89,7 +89,7 @@
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>华中科技大学</h3>
+                            <h3>华中科技大学</h4>
                             <h4>未来技术学院 | 学士学位</h4>
                             <p>人工智能专业</p>
                             <span class="timeline-date">2021 - 2025</span>
@@ -124,12 +124,6 @@
                                     <span class="skill-label">C++</span>
                                 </a>
                             </div>
-                            <div class="skill-item">
-                                <a href="https://en.wikipedia.org/wiki/Assembly_language" target="_blank">
-                                    <i class="devicon-nasm-original colored skill-icon" aria-hidden="true"></i>
-                                    <span class="skill-label">Assembly</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -137,13 +131,13 @@
                         <div class="skill-tags">
                             <div class="skill-item">
                                 <a href="https://numpy.org" target="_blank">
-                                    <i class="devicon-numpy-plain-wordmark colored skill-icon" aria-hidden="true"></i>
+                                    <i class="devicon-numpy-plain colored skill-icon" aria-hidden="true"></i>
                                     <span class="skill-label">NumPy</span>
                                 </a>
                             </div>
                             <div class="skill-item">
                                 <a href="https://pytorch.org" target="_blank">
-                                    <i class="devicon-pytorch-plain-wordmark colored skill-icon" aria-hidden="true"></i>
+                                    <i class="devicon-pytorch-plain colored skill-icon" aria-hidden="true"></i>
                                     <span class="skill-label">PyTorch</span>
                                 </a>
                             </div>
@@ -154,13 +148,13 @@
                         <div class="skill-tags">
                             <div class="skill-item">
                                 <a href="https://www.anaconda.com" target="_blank">
-                                    <i class="devicon-anaconda-original-wordmark colored skill-icon" aria-hidden="true"></i>
+                                    <i class="devicon-anaconda-original colored skill-icon" aria-hidden="true"></i>
                                     <span class="skill-label">Anaconda</span>
                                 </a>
                             </div>
                             <div class="skill-item">
                                 <a href="https://git-scm.com" target="_blank">
-                                    <i class="devicon-git-plain-wordmark colored skill-icon" aria-hidden="true"></i>
+                                    <i class="devicon-git-plain colored skill-icon" aria-hidden="true"></i>
                                     <span class="skill-label">Git</span>
                                 </a>
                             </div>
@@ -175,12 +169,16 @@
                 <h2 class="section-title">荣誉与奖项 <i class="fas fa-trophy" aria-hidden="true"></i></h2>
                 <div class="awards-grid">
                     <div class="award-card">
-                        <div class="award-icon">🏆</div>
+                        <a href="https://mp.weixin.qq.com/s/HyFy0cX5-SmFw74WtmvnmA" target="_blank">
+                            <div class="award-icon">🏆</div>
+                        </a>
                         <h3><a href="https://mp.weixin.qq.com/s/HyFy0cX5-SmFw74WtmvnmA" target="_blank">国家奖学金</a></h3>
                         <p>2023-2024年度</p>
                     </div>
                     <div class="award-card">
-                        <div class="award-icon">⭐</div>
+                        <a href="https://mp.weixin.qq.com/s/ZUBUopNwVFiQtTc9j0EQtQ" target="_blank">
+                            <div class="award-icon">⭐</div>
+                        </a>
                         <h3><a href="https://mp.weixin.qq.com/s/ZUBUopNwVFiQtTc9j0EQtQ" target="_blank">本科特优生</a></h3>
                         <p>华中科技大学</p>
                     </div>
@@ -190,7 +188,9 @@
                         <p>华中科技大学</p>
                     </div>
                     <div class="award-card">
-                        <div class="award-icon">🤖</div>
+                        <a href="https://mp.weixin.qq.com/s/NmCMvNaRvcoFTM4nQTWxZw" target="_blank">
+                            <div class="award-icon">🤖</div>
+                        </a>
                         <h3><a href="https://mp.weixin.qq.com/s/NmCMvNaRvcoFTM4nQTWxZw" target="_blank">机器人大赛二等奖</a></h3>
                         <p>"杉川杯"华中科技大学</p>
                     </div>
@@ -248,6 +248,51 @@
             <div id="lottie-footer-2" style="width:120px;height:120px;"></div>
             <div id="lottie-footer-3" style="width:120px;height:120px;"></div>
         </div>
+        <!-- 点赞、投币、收藏区域 横向排列 -->
+        <div class="page-stats" style="text-align:center;margin-top:20px;">
+            <div style="display:inline-flex;gap:32px;align-items:center;">
+                <!-- 点赞 -->
+                <div id="like-count">
+                    <button id="like-btn" style="background:none;border:none;cursor:pointer;font-size:1.6em;vertical-align:middle;">
+                        <i class="fas fa-thumbs-up" id="like-icon" style="font-size:2em;vertical-align:middle;color:#666;"></i>
+                        <span style="font-size:1.2em;vertical-align:middle;"> 点赞</span>
+                    </button>
+                    <span id="like-num" style="font-size:1.2em;vertical-align:middle;">--</span>
+                </div>
+                <!-- 投币 -->
+                <div id="coin-count">
+                    <button id="coin-btn" style="background:none;border:none;cursor:pointer;font-size:1.6em;vertical-align:middle;">
+                        <i class="fas fa-coins" id="coin-icon" style="font-size:2em;vertical-align:middle;color:#666;"></i>
+                        <span style="font-size:1.2em;vertical-align:middle;"> 投币</span>
+                    </button>
+                    <span id="coin-num" style="font-size:1.2em;vertical-align:middle;">--</span>
+                </div>
+                <!-- 收藏 -->
+                <div id="fav-count">
+                    <button id="fav-btn" style="background:none;border:none;cursor:pointer;font-size:1.6em;vertical-align:middle;">
+                        <i class="fas fa-star" id="fav-icon" style="font-size:2em;vertical-align:middle;color:#666;"></i>
+                        <span style="font-size:1.2em;vertical-align:middle;"> 收藏</span>
+                    </button>
+                    <span id="fav-num" style="font-size:1.2em;vertical-align:middle;">--</span>
+                </div>
+                <!-- 转发 -->
+                <div id="share-count">
+                    <button id="share-btn" style="background:none;border:none;cursor:pointer;font-size:1.6em;vertical-align:middle;">
+                        <i class="fas fa-share" id="share-icon" style="font-size:2em;vertical-align:middle;color:#666;transition:color 0.2s;"></i>
+                        <span style="font-size:1.2em;vertical-align:middle;"> 转发</span>
+                    </button>
+                    <span id="share-num" style="font-size:1.2em;vertical-align:middle;">--</span>
+                </div>
+            </div>
+            <!-- 访问量区域缩小 -->
+            <div style="margin-top:10px;">
+                <span style="font-size:1em;display:inline-flex;align-items:center;">
+                    <i class="fas fa-eye" style="font-size:1em;vertical-align:middle;"></i>
+                    <span style="vertical-align:middle;margin-left:4px;">访问量：</span>
+                    <span id="visit-count" style="vertical-align:middle;margin-left:4px;">--</span>
+                </span>
+            </div>
+        </div>
   
     <footer class="footer">
         <p>&copy; 2025 王心瀚. 感谢所有支持和鼓励我的人，是你们让我变得更好。💕</p>
@@ -255,6 +300,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="script.js"></script>
+    <!-- 新增：访问量和点赞统计脚本 -->
+    <script src="stats.js"></script>
     <script>
       lottie.loadAnimation({
         container: document.getElementById('lottie-footer'),

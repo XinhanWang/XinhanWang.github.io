@@ -30,9 +30,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 32px;
 }
 
 /* Header & Navigation */
@@ -149,17 +149,17 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 32px;
     position: relative;
     z-index: 1;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
@@ -171,30 +171,31 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
     opacity: 0.9;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
     opacity: 0.8;
     line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .btn {
-    padding: 12px 30px;
+    padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-block;
+    font-size: 1.2rem;
 }
 
 .btn-primary {
@@ -226,7 +227,7 @@ body {
 
 /* Sections */
 .section {
-    padding: 80px 0;
+    padding: 96px 0;
 }
 
 .section-alt {
@@ -234,7 +235,7 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
@@ -351,9 +352,19 @@ body {
 /* Skills */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.skills-grid .skill-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -368,7 +379,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 120px;
+    max-width: 220px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
 }
 
 /* 新增：技能项内链接样式 */
@@ -379,11 +395,12 @@ body {
     text-decoration: none;
     color: inherit;
     width: 100%;
+    justify-content: center;
 }
 
 .skill-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
+    font-size: 3.2rem;
+    margin: 1rem;
     color: var(--primary-color);
 }
 
@@ -409,19 +426,20 @@ body {
 
 .skill-label {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     text-align: center;
 }
 
 .skill-category {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
     text-align: center;
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
+    font-size: 1.1rem;
 }
 
 .skill-category:hover {
@@ -456,22 +474,42 @@ body {
     font-weight: 600;
 }
 
+/* 编程语言区块：每行两个技能项 */
+.skill-category:first-child .skill-tags {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+}
+
+/* 深度学习和工具区块：每行一个技能项 */
+.skill-category:nth-child(2) .skill-tags,
+.skill-category:nth-child(3) .skill-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 /* Awards */
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .award-card {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
     text-align: center;
     transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .award-card:hover {
@@ -480,8 +518,8 @@ body {
 }
 
 .award-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .award-card h3 {
@@ -496,27 +534,30 @@ body {
 
 /* GitHub Stats */
 .stats-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
     justify-content: center;
-    align-items: center; /* 垂直居中所有 stat-card */
-    gap: 2rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .stat-card {
     display: flex;
     align-items: center; /* 垂直居中图片 */
     justify-content: center;
-    min-height: 220px; /* 可根据实际图片高度调整 */
+    min-height: 260px; /* 可根据实际图片高度调整 */
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 15px;
     box-shadow: var(--shadow);
 }
 
 .stat-card img {
     max-width: 100%;
-    width: 400px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -524,19 +565,20 @@ body {
 
 /* Contact */
 .contact-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    padding: 0 16px;
 }
 
 .contact-info h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
 .contact-info p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
     color: var(--text-light);
 }
@@ -551,13 +593,14 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     background: var(--gradient);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: all 0.3s ease;
+    font-size: 1.2rem;
 }
 
 .contact-link:hover {
@@ -596,18 +639,53 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px; /* 动画之间的间距，可根据实际调整 */
-    margin-top: 32px;
+    gap: 48px;
+    margin-top: 48px;
     margin-bottom: 0;
 }
 
 .lottie-footer-row > div {
     /* 保证动画容器宽高一致，去除 margin */
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
 }
 
 /* Responsive Design */
+@media (max-width: 1280px) {
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 98vw;
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 98vw;
+        padding: 0 8px;
+    }
+    .section {
+        padding: 56px 0;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 12px 28px;
+    }
+    .lottie-footer-row > div {
+        width: 120px;
+        height: 120px;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -619,12 +697,12 @@ body {
     
     .hero-content {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 2rem;
+        text-align: center;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .timeline::before {
@@ -654,7 +732,7 @@ body {
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .hero-video {
@@ -665,23 +743,70 @@ body {
     .hero {
         background: var(--gradient);
     }
+
+    .skills-grid, .awards-grid, .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .lottie-footer-row {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 24px;
+    }
+    .lottie-footer-row > div {
+        width: 90px;
+        height: 90px;
+    }
+    .page-stats > div {
+        flex-direction: column;
+        gap: 18px;
+        align-items: stretch;
+    }
+    .page-stats [id$="-count"] {
+        min-width: 110px;
+        margin-bottom: 6px;
+    }
+    .contact-content {
+        max-width: 98vw;
+        padding: 0 4px;
+    }
+    .contact-links {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: stretch;
+    }
+    .skill-category .skill-tags {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
-    
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .section-title {
+        font-size: 1.1rem;
     }
-    
-    .awards-grid {
-        grid-template-columns: 1fr;
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+    .lottie-footer-row > div {
+        width: 60px;
+        height: 60px;
+    }
+    .page-stats [id$="-count"] {
+        min-width: 80px;
+    }
+    .stat-card img {
+        max-width: 98vw;
     }
 }
 
