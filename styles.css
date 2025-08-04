@@ -566,9 +566,18 @@ body {
 }
 
 /* 品牌色覆盖 */
-.contact-link.github { background: var(--github-color) !important; }
-.contact-link.email  { background: var(--email-color)  !important; }
-.contact-link.bilibili { background: var(--bilibili-color) !important; }
+.contact-link.github {
+    /* background: var(--github-color) !important; */
+    color: var(--github-color) !important;
+}
+.contact-link.email {
+    /* background: var(--email-color) !important; */
+    color: var(--email-color) !important;
+}
+.contact-link.bilibili {
+    /* background: var(--bilibili-color) !important; */
+    color: var(--bilibili-color) !important;
+}
 
 /* Footer */
 .footer {
