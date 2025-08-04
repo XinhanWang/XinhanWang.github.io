@@ -18,7 +18,7 @@
     --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --gradient-alt: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     --github-color: #333;
-    --email-color: #ffffff;
+    --email-color: #D44638;    /* 调整 email 品牌色，由白色改为 Gmail 红 */
     --bilibili-color: #00a1d6;
 }
 
@@ -566,9 +566,9 @@ body {
 }
 
 /* 品牌色覆盖 */
-.contact-link.github { background: var(--github-color); }
-.contact-link.email { background: var(--email-color); }
-.contact-link.bilibili { background: var(--bilibili-color); }
+.contact-link.github { background: var(--github-color) !important; }
+.contact-link.email  { background: var(--email-color)  !important; }
+.contact-link.bilibili { background: var(--bilibili-color) !important; }
 
 /* Footer */
 .footer {
@@ -686,4 +686,42 @@ body {
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
+}
+
+/* 火车行驶动画 */
+.train-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+.train {
+  position: absolute;
+  bottom: 10px;
+  left: -200px;
+  width: 200px;
+  height: 60px;
+  background: #333;
+  border-radius: 10px;
+  animation: trainMove 8s linear infinite;
+}
+
+.train::before,
+.train::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #222;
+  border-radius: 50%;
+  bottom: -12px;
+}
+
+.train::before { left: 20px; }
+.train::after  { left: 80px; }
+
+@keyframes trainMove {
+  from { left: -200px; }
+  to   { left: 100%; }
 }
