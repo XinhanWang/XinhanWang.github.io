@@ -17,6 +17,9 @@
     --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
     --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --gradient-alt: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    --github-color: #333;
+    --email-color: #ffffff;
+    --bilibili-color: #00a1d6;
 }
 
 body {
@@ -561,6 +564,11 @@ body {
 .contact-link .fa-bilibili {
     font-size: 1.3rem;
 }
+
+/* 品牌色覆盖 */
+.contact-link.github { background: var(--github-color); }
+.contact-link.email { background: var(--email-color); }
+.contact-link.bilibili { background: var(--bilibili-color); }
 
 /* Footer */
 .footer {
