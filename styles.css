@@ -145,15 +145,16 @@ body {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex; /* 改为flex布局 */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 32px;
     position: relative;
     z-index: 1;
+    text-align: center; /* 居中所有内容 */
 }
 
 .hero-title {
@@ -186,6 +187,8 @@ body {
 .hero-buttons {
     display: flex;
     gap: 2rem;
+    justify-content: center; /* 居中按钮 */
+    align-items: center;
 }
 
 .btn {
@@ -696,9 +699,12 @@ body {
     }
     
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        gap: 2rem;
     }
     
     .hero-title {
@@ -820,6 +826,15 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.hero-text {
+    width: 100%;
+    text-align: center; /* 强制居中 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-text > * {
