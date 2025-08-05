@@ -369,10 +369,6 @@ body {
     gap: 2.5rem;
     width: 100%;
     margin: 0 auto;
-}
-
-.skills-grid .skill-tags {
-    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
@@ -851,4 +847,17 @@ body {
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
+}
+
+/* 新增：按钮激活和悬停样式 */
+.active-btn .fa-thumbs-up,
+.active-btn .fa-coins,
+.active-btn .fa-star {
+    color: #00A1D6 !important;
+}
+#like-btn:hover .fa-thumbs-up,
+#coin-btn:hover .fa-coins,
+#fav-btn:hover .fa-star,
+#share-btn:hover .fa-share {
+    color: #00A1D6 !important;
 }
