@@ -562,6 +562,18 @@ body {
     margin: 0 auto;
 }
 
+/* 点赞按钮自动居中 */
+.likebtn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto 0 auto;
+    text-align: center;
+    width: 100%;
+    /* 兼容性：防止父容器宽度限制导致不居中 */
+    box-sizing: border-box;
+}
+
 /* Contact */
 .contact-content {
     max-width: 700px;
@@ -750,6 +762,14 @@ body {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+    .likebtn-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 18px auto 0 auto;
+        text-align: center;
+        width: 100%;
+    }
     .lottie-footer-row {
         flex-direction: column;
         gap: 24px;
@@ -783,6 +803,13 @@ body {
         gap: 1.5rem !important;
         align-items: center !important;
         justify-content: flex-start !important;
+    }
+
+    .likebtn-wrapper {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
 }
 
