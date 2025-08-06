@@ -756,7 +756,12 @@ body {
         height: 100vh;
         object-fit: cover;
         object-position: center center;
-        display: block; /* 移除 display: none，保证手机端显示视频 */
+        display: block !important; /* 强制显示视频背景 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        background: #667eea;
     }
     
     .hero {

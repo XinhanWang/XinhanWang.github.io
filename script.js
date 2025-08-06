@@ -39,9 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroVideo) {
         heroVideo.muted = true;
         heroVideo.playsInline = true;
+        heroVideo.setAttribute('playsinline', 'true');
+        heroVideo.setAttribute('webkit-playsinline', 'true');
         heroVideo.autoplay = true;
         heroVideo.loop = true;
         heroVideo.style.display = ''; // 保证所有设备都显示
+        heroVideo.style.objectFit = 'cover';
+        heroVideo.style.objectPosition = 'center center';
         // 兼容性处理
         heroVideo.play().catch(() => {});
     }
