@@ -72,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 heroVideo.style.display = 'none';
             }
         }
+    } else {
+        // 桌面端强制自动播放
+        if (heroVideo) {
+            heroVideo.muted = true;
+            heroVideo.playsInline = true;
+            heroVideo.autoplay = true;
+            // 兼容性处理
+            heroVideo.play().catch(() => {});
+        }
     }
     
     // 滚动动画
