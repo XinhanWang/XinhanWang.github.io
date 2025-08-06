@@ -34,13 +34,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 手机端自动隐藏视频（防止部分安卓机型仍显示）
+    // 手机端自动隐藏视频（仅在无法自动播放时隐藏）
     function isMobile() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
+    function canAutoPlayVideo() {
+        // 尝试自动播放静音视频
+        const video = document.createElement('video');
+        video.muted = true;
+        video.playsInline = true;
+        video.autoplay = true;
+        // 部分浏览器支持 promise
+        let canPlay = false;
+        try {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => { canPlay = true; }).catch(() => { canPlay = false; });
+            } else {
+                canPlay = true;
+            }
+        } catch (e) {
+            canPlay = false;
+        }
+        return canPlay || video.autoplay;
+    }
+    const heroVideo = document.querySelector('.hero-video');
     if (isMobile()) {
-        const heroVideo = document.querySelector('.hero-video');
-        if (heroVideo) heroVideo.style.display = 'none';
+        if (heroVideo) {
+            // 如果能自动播放则显示，否则隐藏
+            if (canAutoPlayVideo()) {
+                heroVideo.style.display = '';
+                heroVideo.muted = true;
+                heroVideo.playsInline = true;
+                heroVideo.autoplay = true;
+                heroVideo.play();
+            } else {
+                heroVideo.style.display = 'none';
+            }
+        }
     }
     
     // 滚动动画
