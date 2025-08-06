@@ -680,8 +680,13 @@ body {
         padding: 56px 0;
     }
     .section-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 2rem;
+        padding-left: 0;
+        border-left: none;
+        background: none;
+        border-radius: 0;
+        text-align: center;
     }
     .hero-title {
         font-size: 2.5rem;
@@ -697,14 +702,248 @@ body {
         width: 120px;
         height: 120px;
     }
+    /* 保持卡片风格一致，仅缩小padding */
+    .skill-category, .award-card, .stat-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    .timeline-content {
+        padding: 1.2rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 100vw;
+        padding: 0 2vw;
+    }
+
+    /* 标题层次感增强 */
+    .section {
+        padding: 36px 0;
+    }
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        padding-left: 0;
+        border-left: none;
+        background: none;
+        border-radius: 0;
+    }
+    .section-title i {
+        font-size: 1.1em;
+        margin-left: 0.5em;
+        color: var(--primary-color);
+    }
+    .about-content, .contact-content {
+        padding: 0 2vw;
+        text-align: center;
+    }
+    .about-text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .research-focus {
+        padding: 0.8rem;
+        border-radius: 10px;
+        font-size: 0.98rem;
+        margin-bottom: 1rem;
+    }
+    .research-focus h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    .research-tag {
+        font-size: 0.95rem;
+        padding: 5px 12px;
+        border-radius: 14px;
+    }
+
+    /* Hero区块优化 */
+    .hero-content {
+        padding: 0 2vw;
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .hero-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+        text-align: center;
+        width: 100%;
+    }
+    .highlight {
+        font-weight: 900;
+    }
+    .hero-subtitle {
+        font-size: 1.08rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+    }
+    .hero-description {
+        font-size: 0.98rem;
+        margin-bottom: 0.8rem;
+        text-align: center;
+        width: 100%;
+    }
+    .hero-buttons {
+        gap: 0.7rem;
+        width: 100%;
+        justify-content: center;
+    }
+    .btn {
+        font-size: 0.98rem;
+        padding: 10px 18px;
+        border-radius: 30px;
+        min-width: 90px;
+        width: auto;
+        margin-right: 0.3rem;
+    }
+
+    /* 技能、荣誉、统计卡片铺满屏幕 */
+    .skills-grid, .awards-grid, .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+    }
+    .skill-category, .award-card, .stat-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        border-radius: 10px;
+        margin: 0 auto;
+        padding: 1rem 1vw;
+        font-size: 0.98rem;
+    }
+    .skill-category h3, .award-card h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .skill-tags {
+        gap: 0.7rem !important;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .skill-item {
+        min-width: 70px;
+        max-width: 100vw;
+        width: 100%;
+        padding: 0.2rem 0;
+    }
+    .skill-label {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
+        text-align: center;
+        width: 100%;
+    }
+    .skill-icon, .award-icon {
+        font-size: 1.5rem !important;
+        margin: 0.2rem !important;
+    }
+
+    /* Timeline 优化 */
+    .timeline {
+        max-width: 100vw;
+        padding: 0 2vw;
+    }
+    .timeline-content {
+        width: 100%;
+        min-width: 0;
+        border-radius: 8px;
+        padding: 0.8rem 1vw;
+        font-size: 0.98rem;
+        margin-bottom: 0.8rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.02rem;
+        font-weight: 700;
+    }
+    .timeline-content h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
+    .timeline-date {
+        font-size: 0.92rem;
+    }
+
+    /* 联系方式区块优化 */
+    .contact-info h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .contact-info p {
+        font-size: 0.98rem;
+        margin-bottom: 0.7rem;
+        text-align: center;
+    }
+    .contact-links {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-link {
+        font-size: 0.98rem;
+        padding: 0.7rem 1.2rem;
+        border-radius: 20px;
+        min-width: 70px;
+        width: auto;
+        font-weight: 600;
+    }
+
+    /* Lottie动画、图片自适应 */
+    .lottie-footer-row {
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 12px;
+        margin-bottom: 0;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2vw;
+    }
+    .lottie-footer-row > div {
+        width: 24vw !important;
+        height: 24vw !important;
+        min-width: 36px;
+        min-height: 36px;
+        max-width: 80px;
+        max-height: 80px;
+    }
+    .stat-card img {
+        max-width: 100vw;
+        width: 100vw;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Footer 优化 */
+    .footer {
+        font-size: 0.98rem;
+        padding: 0.8rem 0;
+        background: var(--primary-color);
+        color: #fff;
+        border-radius: 0;
+        margin-top: 0.8rem;
+    }
+
+    /* 汉堡菜单适配 */
     .hamburger {
         display: flex;
         z-index: 1101;
     }
-    
     .nav-menu {
         display: none;
         position: absolute;
@@ -719,6 +958,7 @@ body {
         transition: max-height 0.3s ease;
         max-height: 0;
         overflow: hidden;
+        border-radius: 0 0 12px 12px;
     }
     .nav-menu.active {
         display: flex;
@@ -765,222 +1005,336 @@ body {
     .hamburger span {
         transition: all 0.3s;
     }
-    
-    .nav-menu {
-        display: none;
-    }
-    
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 1.2rem; /* 缩小间距 */
-        padding: 0 8px;
-    }
-    
-    .hero-title {
-        font-size: 1.35rem; /* 更小标题 */
-        margin-bottom: 0.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 0.98rem;
-        margin-bottom: 0.7rem;
-    }
-    
-    .hero-description {
-        font-size: 0.92rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .hero-buttons {
-        gap: 1rem;
-    }
-    
-    .btn {
-        font-size: 0.92rem;
-        padding: 8px 18px;
-        border-radius: 32px;
-    }
-    
-    .section {
-        padding: 32px 0;
-    }
-    
+}
+
+@media (max-width: 480px) {
+    /* 一级标题更大更粗更突出 */
     .section-title {
-        font-size: 1.15rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .skills-grid, .awards-grid, .stats-grid {
-        gap: 1rem;
-    }
-    
-    .skill-category {
-        padding: 1.2rem;
-        font-size: 0.98rem;
-    }
-    
-    .skill-category h3 {
-        font-size: 1.05rem;
-        margin-bottom: 1rem;
-    }
-    
-    .skill-icon, .award-icon {
-        font-size: 2.1rem !important;
-        margin: 0.4rem !important;
-    }
-    
-    .skill-label {
-        font-size: 0.98rem;
-    }
-    
-    .award-card {
-        padding: 1.2rem;
-        font-size: 0.98rem;
-    }
-    
-    .award-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .contact-info h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.6rem;
-    }
-    
-    .contact-info p {
-        font-size: 1.05rem;
-        margin-bottom: 1.2rem;
-    }
-    
-    .contact-link {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
-        border-radius: 32px;
-    }
-    
-    .lottie-footer-row {
-        gap: 12px;
-        margin-top: 12px;
-    }
-    .lottie-footer-row > div {
-        width: 60px;
-        height: 60px;
-    }
-    .likebtn-wrapper {
-        margin: 10px auto 0 auto;
-    }
-    .timeline-content {
-        padding: 1.1rem;
-        border-radius: 10px;
-    }
-    .timeline-content h3 {
-        font-size: 1rem;
-    }
-    .timeline-content h4 {
-        font-size: 0.95rem;
-    }
-    .timeline-date {
-        font-size: 0.8rem;
-    }
-    .about-content {
-        padding: 0 2px;
-    }
-    .about-text p {
-        font-size: 0.98rem;
-        margin-bottom: 1.2rem;
-    }
-    .research-focus {
-        padding: 1rem;
-        border-radius: 10px;
-        font-size: 0.98rem;
-    }
-    .research-focus h3 {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-    }
-    .research-tag {
-        padding: 6px 14px;
-        font-size: 0.92rem;
-    }
-    
-    .hero-video {
-        display: none !important; /* 移动端隐藏视频 */
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        object-position: center center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -2;
-        background: #667eea;
-    }
-    
-    .hero {
-        background: var(--gradient); /* 移动端显示渐变背景 */
+        font-size: 2.4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.02em;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(102,126,234,0.08);
     }
 
-    .skills-grid, .awards-grid, .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    /* Hero区块主标题极度突出 */
+    .hero-title {
+        font-size: 5.4rem;
+        font-weight: 900;
+        margin-bottom: 1.2rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-shadow: 0 4px 16px rgba(102,126,234,0.18);
     }
-    .likebtn-wrapper {
+
+    /* 研究方向卡片下方留白增大，标签更大 */
+    .research-focus {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.2rem;
+    }
+    .research-tag {
+        font-size: 1rem;
+        padding: 6px 16px;
+        border-radius: 16px;
+        margin-top: 0.7rem;
+        display: inline-block;
+    }
+
+    /* 教育背景时间轴：圆点垂直居中 */
+    .timeline {
+        padding-left: 10px;
+    }
+    .timeline::before {
+        left: 18px;
+        transform: none;
+        width: 3px;
+        background: var(--gradient);
+    }
+    .timeline-item {
+        flex-direction: row !important;
+        align-items: flex-start;
+        margin-bottom: 2.2rem;
+        position: relative;
+    }
+    .timeline-marker {
+        left: 10px;
+        transform: none;
+        position: absolute;
+        top: 50%;
+        margin-top: 0;
+        transform: translateY(-50%);
+    }
+    .timeline-content {
+        width: 90vw !important;
+        min-width: 0;
+        margin-left: 38px;
+        border-radius: 10px;
+        padding: 1rem 1vw;
+        font-size: 1.08rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 0.7rem;
+        text-align: left;
+        position: relative;
+    }
+
+    /* 技术技能区块：每个skill-category垂直排列，单列显示 */
+    .skills-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.2rem !important;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+    }
+    .skill-category {
+        width: 100% !important;
+        margin: 0 auto 0.7rem auto;
+        padding: 0.7rem 0.2vw;
+        font-size: 1.05rem;
+        border-radius: 8px;
+    }
+    .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.7rem !important;
+        width: 100%;
+        justify-items: center;
+        align-items: start;
+    }
+
+    /* 技能区块：两列布局，图标放大，减少空白 */
+    .skills-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.7rem !important;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+    }
+    .skill-category {
+        padding: 0.7rem 0.2vw;
+        font-size: 1.05rem;
+        border-radius: 8px;
+        margin-bottom: 0.7rem;
+    }
+    .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.7rem !important;
+        width: 100%;
+        justify-items: center;
+        align-items: start;
+    }
+    .skill-item {
+        min-width: 0;
+        max-width: 100vw;
+        width: 100%;
+        padding: 0.2rem 0;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        margin: 18px auto 0 auto;
+    }
+    .skill-icon, .award-icon {
+        font-size: 2.3rem !important;
+        margin: 0.2rem !important;
+    }
+    .skill-label {
+        font-size: 1.08rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
         text-align: center;
         width: 100%;
     }
-    .lottie-footer-row {
-        flex-direction: column;
-        gap: 24px;
-        margin-top: 24px;
-    }
+
+    /* 底部动图放大 */
     .lottie-footer-row > div {
-        width: 90px;
-        height: 90px;
-    }
-    .page-stats > div {
-        flex-direction: column;
-        gap: 18px;
-        align-items: stretch;
-    }
-    .page-stats [id$="-count"] {
-        min-width: 110px;
-        margin-bottom: 6px;
-    }
-    .contact-content {
-        max-width: 98vw;
-        padding: 0 4px;
-    }
-    .contact-links {
-        flex-direction: column;
-        gap: 1.2rem;
-        align-items: stretch;
-    }
-    .skill-category .skill-tags {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.5rem !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
+        width: 38vw !important;
+        height: 38vw !important;
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 120px;
+        max-height: 120px;
     }
 
-    .likebtn-wrapper {
-        display: block;
+    /* Hero主标题极度放大，宽度0.75页面，居中 */
+    .hero-title {
+        font-size: 8vw; /* 约38px~40px，随屏幕自适应 */
+        font-weight: 900;
+        margin-bottom: 1.2rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-shadow: 0 4px 16px rgba(102,126,234,0.18);
+        max-width: 75vw;
+        width: 75vw;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        word-break: break-all;
+    }
+
+    /* 一级标题再放大 */
+    .section-title {
+        font-size: 2.9rem;
+        font-weight: 900;
+        margin-bottom: 1.7rem;
+        letter-spacing: 0.02em;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(102,126,234,0.08);
+        line-height: 1.18;
+    }
+
+    /* GitHub统计部分横向留白，不要占满页面 */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+        justify-items: center;
+        align-items: center;
+    }
+    .stat-card {
+        max-width: 92vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        background: var(--card-bg);
+        padding: 0.5rem 0;
+    }
+    .stat-card img {
+        max-width: 90vw !important;
+        width: 90vw !important;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    /* 底部动图放大一倍 */
+    .lottie-footer-row > div {
+        width: 76vw !important;
+        height: 76vw !important;
+        min-width: 120px;
+        min-height: 120px;
+        max-width: 240px;
+        max-height: 240px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+    }
+    .hero-title {
+        font-size: 3.2rem;
+        font-weight: 900;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
+    }
+    .skill-icon, .award-icon {
+        font-size: 2.7rem !important;
+    }
+    .lottie-footer-row > div {
+        width: 28vw !important;
+        height: 28vw !important;
+        min-width: 80px;
+        min-height: 80px;
+        max-width: 160px;
+        max-height: 160px;
     }
 }
 
 @media (max-width: 480px) {
+    .section-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.1rem;
+    }
+    .hero-content {
+        min-height: 70vh;
+        padding-top: 10vw;
+        padding-bottom: 10vw;
+        justify-content: center;
+    }
+    .hero-title {
+        font-size: 2.1rem;
+        margin-bottom: 1.1rem;
+        line-height: 1.25;
+    }
+    .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 0.7rem;
+    }
+    .hero-description {
+        font-size: 1.08rem;
+        margin-bottom: 1.2rem;
+        line-height: 1.7;
+    }
+    .hero-buttons {
+        gap: 1.1rem;
+        margin-top: 0.7rem;
+    }
+    .btn {
+        font-size: 1.12rem;
+        padding: 14px 0;
+        border-radius: 22px;
+        min-width: 48vw;
+        width: 80vw;
+        max-width: 90vw;
+        margin: 0 0.2rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .about-text p {
+        font-size: 1.08rem;
+        margin-bottom: 1.1rem;
+    }
+    .contact-info h3 {
+        font-size: 1.18rem;
+    }
+    .contact-info p {
+        font-size: 1.05rem;
+    }
+    .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 14px 0;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    .hero-description {
+        font-size: 1.15rem;
+        margin-bottom: 1.5rem;
+    }
+    .btn {
+        font-size: 1.08rem;
+        padding: 13px 0;
+        min-width: 32vw;
+        width: 60vw;
+        max-width: 80vw;
+    }
+    .nav-menu li a {
+        font-size: 1rem;
+        padding: 16px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.08rem;
+        margin-bottom: 0.7rem;
+    }
     .hero-title {
         font-size: 1.05rem;
         margin-bottom: 0.5rem;
@@ -996,58 +1350,25 @@ body {
     .btn {
         font-size: 0.78rem;
         padding: 6px 10px;
-        border-radius: 22px;
+        border-radius: 14px;
+        min-width: 60px;
     }
-    .section-title {
-        font-size: 0.92rem;
-        margin-bottom: 0.7rem;
-    }
-    .skill-category {
-        padding: 0.7rem;
+    .skill-category, .award-card, .stat-card {
+        padding: 0.5rem 1vw;
         font-size: 0.85rem;
+        border-radius: 5px;
     }
-    .skill-category h3 {
+    .skill-category h3, .award-card h3 {
         font-size: 0.85rem;
-        margin-bottom: 0.5rem;
-    }
-    .skill-icon, .award-icon {
-        font-size: 1.3rem !important;
-        margin: 0.2rem !important;
+        margin-bottom: 0.3rem;
     }
     .skill-label {
         font-size: 0.85rem;
     }
-    .award-card {
-        padding: 0.7rem;
-        font-size: 0.85rem;
-    }
-    .award-card h3 {
-        font-size: 0.85rem;
-        margin-bottom: 0.2rem;
-    }
-    .contact-info h3 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-    .contact-info p {
-        font-size: 0.85rem;
-        margin-bottom: 0.7rem;
-    }
-    .contact-link {
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
-        border-radius: 18px;
-    }
-    .lottie-footer-row > div {
-        width: 36px;
-        height: 36px;
-    }
-    .likebtn-wrapper {
-        margin: 6px auto 0 auto;
-    }
     .timeline-content {
-        padding: 0.6rem;
-        border-radius: 6px;
+        padding: 0.4rem 1vw;
+        font-size: 0.82rem;
+        border-radius: 4px;
     }
     .timeline-content h3 {
         font-size: 0.85rem;
@@ -1058,25 +1379,37 @@ body {
     .timeline-date {
         font-size: 0.7rem;
     }
-    .about-content {
-        padding: 0 1px;
-    }
     .about-text p {
         font-size: 0.85rem;
-        margin-bottom: 0.7rem;
     }
     .research-focus {
-        padding: 0.5rem;
-        border-radius: 6px;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
+        padding: 0.3rem;
+        border-radius: 4px;
     }
-    .research-focus h3 {
-        font-size: 0.85rem;
-        margin-bottom: 0.3rem;
+    .contact-info h3 {
+        font-size: 0.92rem;
     }
-    .research-tag {
-        padding: 4px 8px;
-        font-size: 0.8rem;
+    .contact-info p {
+        font-size: 0.82rem;
+    }
+    .contact-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+        border-radius: 10px;
+        min-width: 50px;
+    }
+    .lottie-footer-row > div {
+        width: 28vw !important;
+        height: 28vw !important;
+        min-width: 24px;
+        min-height: 24px;
+        max-width: 40px;
+        max-height: 40px;
+    }
+    .footer {
+        font-size: 0.82rem;
+        padding: 0.5rem 0;
     }
 }
 
@@ -1133,4 +1466,20 @@ a, a:visited, a:hover, a:active {
 @keyframes navMenuFadeIn {
     from { opacity: 0; transform: translateY(-20px);}
     to { opacity: 1; transform: translateY(0);}
+}
+
+/* 手机端优化：英雄标题、一级标题和底部 Lottie 动画放大 */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.4rem !important;
+        font-weight: 900 !important;
+    }
+    .section-title {
+        font-size: 1.8rem !important;
+        font-weight: 900 !important;
+    }
+    .lottie-footer-row > div {
+        width: 120px !important;
+        height: 120px !important;
+    }
 }
