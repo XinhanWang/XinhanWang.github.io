@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
         if (window.innerWidth <= 768) {
-            heroVideo.style.display = 'none'; // 移动端隐藏视频
+            // 移动端完全禁止视频播放和加载
+            heroVideo.parentNode && heroVideo.parentNode.removeChild(heroVideo);
         } else {
             heroVideo.muted = true;
             heroVideo.playsInline = true;

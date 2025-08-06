@@ -37,8 +37,8 @@
 
     <main>
         <section class="hero">
-            <video class="hero-video" autoplay muted loop playsinline webkit-playsinline>
-                <source src="video.mp4" type="video/mp4">
+            <video class="hero-video" id="hero-video" autoplay muted loop playsinline webkit-playsinline>
+                <source src="video.mp4" type="video/mp4" media="(min-width: 769px)">
                 您的浏览器不支持视频播放。
             </video>
             <div class="hero-overlay"></div>
@@ -203,10 +203,14 @@
                 <h2 class="section-title">GitHub 统计 <i class="fab fa-github" aria-hidden="true"></i></h2>
                 <div class="stats-grid">
                     <div class="stat-card" style="background:none;box-shadow:none;">
+                        <img src="github_stat.jpeg" alt="GitHub统计默认图" class="github-stats-fallback"
+                             style="display:block;box-shadow:none;border:none;background:none;">
                         <img src="https://github-readme-stats.vercel.app/api?username=XinhanWang&locale=cn&theme=tokyonight&hide_border=true"
                              alt="GitHub统计"
-                             style="box-shadow:none;border:none;background:none;"
-                             onerror="this.onerror=null;this.src='github_stat.jpeg';">
+                             style="box-shadow:none;border:none;background:none;display:none;"
+                             loading="lazy"
+                             onload="this.style.display='block';this.previousElementSibling.style.display='none';"
+                             onerror="this.style.display='none';this.previousElementSibling.style.display='block';">
                     </div>
                     <div class="stat-card" style="background:none;box-shadow:none;">
                         <img src="https://api.star-history.com/svg?repos=XinhanWang/XinhanWang&type=Date&theme=dark"

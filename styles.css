@@ -776,41 +776,136 @@ body {
         justify-content: center;
         align-items: center;
         text-align: center;
-        gap: 2rem;
+        gap: 1.2rem; /* 缩小间距 */
+        padding: 0 8px;
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.35rem; /* 更小标题 */
+        margin-bottom: 0.8rem;
     }
     
-    .timeline::before {
-        left: 20px;
+    .hero-subtitle {
+        font-size: 0.98rem;
+        margin-bottom: 0.7rem;
     }
     
-    .timeline-item {
-        flex-direction: row !important;
-        padding-left: 50px;
+    .hero-description {
+        font-size: 0.92rem;
+        margin-bottom: 1.2rem;
     }
     
-    .timeline-marker {
-        left: 20px;
+    .hero-buttons {
+        gap: 1rem;
     }
     
-    .timeline-content {
-        width: 100%;
+    .btn {
+        font-size: 0.92rem;
+        padding: 8px 18px;
+        border-radius: 32px;
     }
     
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .section {
+        padding: 32px 0;
     }
     
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .skills-grid, .awards-grid, .stats-grid {
+        gap: 1rem;
+    }
+    
+    .skill-category {
+        padding: 1.2rem;
+        font-size: 0.98rem;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-icon, .award-icon {
+        font-size: 2.1rem !important;
+        margin: 0.4rem !important;
+    }
+    
+    .skill-label {
+        font-size: 0.98rem;
+    }
+    
+    .award-card {
+        padding: 1.2rem;
+        font-size: 0.98rem;
+    }
+    
+    .award-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .contact-info p {
+        font-size: 1.05rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 32px;
+    }
+    
+    .lottie-footer-row {
+        gap: 12px;
+        margin-top: 12px;
+    }
+    .lottie-footer-row > div {
+        width: 60px;
+        height: 60px;
+    }
+    .likebtn-wrapper {
+        margin: 10px auto 0 auto;
+    }
+    .timeline-content {
+        padding: 1.1rem;
+        border-radius: 10px;
+    }
+    .timeline-content h3 {
+        font-size: 1rem;
+    }
+    .timeline-content h4 {
+        font-size: 0.95rem;
+    }
+    .timeline-date {
+        font-size: 0.8rem;
+    }
+    .about-content {
+        padding: 0 2px;
+    }
+    .about-text p {
+        font-size: 0.98rem;
+        margin-bottom: 1.2rem;
+    }
+    .research-focus {
+        padding: 1rem;
+        border-radius: 10px;
+        font-size: 0.98rem;
+    }
+    .research-focus h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .research-tag {
+        padding: 6px 14px;
+        font-size: 0.92rem;
     }
     
     .hero-video {
@@ -887,27 +982,101 @@ body {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1.5rem;
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
     }
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.82rem;
+        margin-bottom: 0.4rem;
     }
-    .section-title {
-        font-size: 1.1rem;
+    .hero-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.7rem;
     }
     .btn {
-        font-size: 0.9rem;
-        padding: 8px 14px;
+        font-size: 0.78rem;
+        padding: 6px 10px;
+        border-radius: 22px;
+    }
+    .section-title {
+        font-size: 0.92rem;
+        margin-bottom: 0.7rem;
+    }
+    .skill-category {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+    .skill-category h3 {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    .skill-icon, .award-icon {
+        font-size: 1.3rem !important;
+        margin: 0.2rem !important;
+    }
+    .skill-label {
+        font-size: 0.85rem;
+    }
+    .award-card {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+    .award-card h3 {
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+    }
+    .contact-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    .contact-info p {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+    .contact-link {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+        border-radius: 18px;
     }
     .lottie-footer-row > div {
-        width: 60px;
-        height: 60px;
+        width: 36px;
+        height: 36px;
     }
-    .page-stats [id$="-count"] {
-        min-width: 80px;
+    .likebtn-wrapper {
+        margin: 6px auto 0 auto;
     }
-    .stat-card img {
-        max-width: 98vw;
+    .timeline-content {
+        padding: 0.6rem;
+        border-radius: 6px;
+    }
+    .timeline-content h3 {
+        font-size: 0.85rem;
+    }
+    .timeline-content h4 {
+        font-size: 0.8rem;
+    }
+    .timeline-date {
+        font-size: 0.7rem;
+    }
+    .about-content {
+        padding: 0 1px;
+    }
+    .about-text p {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+    .research-focus {
+        padding: 0.5rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+    }
+    .research-focus h3 {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+    .research-tag {
+        padding: 4px 8px;
+        font-size: 0.8rem;
     }
 }
 
