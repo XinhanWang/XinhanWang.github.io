@@ -752,11 +752,11 @@ body {
     }
     
     .hero-video {
+        display: none !important; /* 移动端隐藏视频 */
         width: 100vw;
         height: 100vh;
         object-fit: cover;
         object-position: center center;
-        display: block !important; /* 强制显示视频背景 */
         position: absolute;
         top: 0;
         left: 0;
@@ -765,7 +765,7 @@ body {
     }
     
     .hero {
-        background: var(--gradient);
+        background: var(--gradient); /* 移动端显示渐变背景 */
     }
 
     .skills-grid, .awards-grid, .stats-grid {

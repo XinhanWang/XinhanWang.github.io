@@ -37,17 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // 手机端/桌面端自动播放视频，保证视频显示且自动播放
     const heroVideo = document.querySelector('.hero-video');
     if (heroVideo) {
-        heroVideo.muted = true;
-        heroVideo.playsInline = true;
-        heroVideo.setAttribute('playsinline', 'true');
-        heroVideo.setAttribute('webkit-playsinline', 'true');
-        heroVideo.autoplay = true;
-        heroVideo.loop = true;
-        heroVideo.style.display = ''; // 保证所有设备都显示
-        heroVideo.style.objectFit = 'cover';
-        heroVideo.style.objectPosition = 'center center';
-        // 兼容性处理
-        heroVideo.play().catch(() => {});
+        if (window.innerWidth <= 768) {
+            heroVideo.style.display = 'none'; // 移动端隐藏视频
+        } else {
+            heroVideo.muted = true;
+            heroVideo.playsInline = true;
+            heroVideo.setAttribute('playsinline', 'true');
+            heroVideo.setAttribute('webkit-playsinline', 'true');
+            heroVideo.autoplay = true;
+            heroVideo.loop = true;
+            heroVideo.style.display = ''; // 保证所有设备都显示
+            heroVideo.style.objectFit = 'cover';
+            heroVideo.style.objectPosition = 'center center';
+            // 兼容性处理
+            heroVideo.play().catch(() => {});
+        }
     }
     
     // 滚动动画
