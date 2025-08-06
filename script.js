@@ -33,6 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.boxShadow = 'none';
         }
     });
+
+    // 手机端自动隐藏视频（防止部分安卓机型仍显示）
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    if (isMobile()) {
+        const heroVideo = document.querySelector('.hero-video');
+        if (heroVideo) heroVideo.style.display = 'none';
+    }
     
     // 滚动动画
     const observerOptions = {
