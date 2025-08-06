@@ -34,53 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 手机端自动隐藏视频（仅在无法自动播放时隐藏）
-    function isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-    function canAutoPlayVideo() {
-        // 尝试自动播放静音视频
-        const video = document.createElement('video');
-        video.muted = true;
-        video.playsInline = true;
-        video.autoplay = true;
-        // 部分浏览器支持 promise
-        let canPlay = false;
-        try {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => { canPlay = true; }).catch(() => { canPlay = false; });
-            } else {
-                canPlay = true;
-            }
-        } catch (e) {
-            canPlay = false;
-        }
-        return canPlay || video.autoplay;
-    }
+    // 手机端/桌面端自动播放视频，保证视频显示且自动播放
     const heroVideo = document.querySelector('.hero-video');
-    if (isMobile()) {
-        if (heroVideo) {
-            // 如果能自动播放则显示，否则隐藏
-            if (canAutoPlayVideo()) {
-                heroVideo.style.display = '';
-                heroVideo.muted = true;
-                heroVideo.playsInline = true;
-                heroVideo.autoplay = true;
-                heroVideo.play();
-            } else {
-                heroVideo.style.display = 'none';
-            }
-        }
-    } else {
-        // 桌面端强制自动播放
-        if (heroVideo) {
-            heroVideo.muted = true;
-            heroVideo.playsInline = true;
-            heroVideo.autoplay = true;
-            // 兼容性处理
-            heroVideo.play().catch(() => {});
-        }
+    if (heroVideo) {
+        heroVideo.muted = true;
+        heroVideo.playsInline = true;
+        heroVideo.autoplay = true;
+        heroVideo.loop = true;
+        heroVideo.style.display = ''; // 保证所有设备都显示
+        // 兼容性处理
+        heroVideo.play().catch(() => {});
     }
     
     // 滚动动画
