@@ -91,4 +91,29 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.opacity = '0';
         observer.observe(el);
     });
+
+    // GitHub 统计加载成功/失败切换备用图
+    const fb = document.getElementById('github-stats-fallback');
+    const stat = document.getElementById('github-stats');
+    if (stat && fb) {
+        function showStat() {
+            stat.style.display = 'block';
+            fb.style.display = 'none';
+        }
+        function showFallback() {
+            stat.style.display = 'none';
+            fb.style.display = 'block';
+        }
+        stat.addEventListener('load', showStat);
+        stat.addEventListener('error', showFallback);
+
+        // 兼容图片已缓存的情况（延迟检查，避免跨域 naturalWidth 问题）
+        setTimeout(function() {
+            if (stat.complete && stat.naturalHeight !== 0) {
+                showStat();
+            } else if (stat.complete && stat.naturalHeight === 0) {
+                showFallback();
+            }
+        }, 100);
+    }
 });

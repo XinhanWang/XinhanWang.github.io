@@ -202,14 +202,13 @@
                 <h2 class="section-title">GitHub Stats <i class="fab fa-github" aria-hidden="true"></i></h2>
                 <div class="stats-grid">
                     <div class="stat-card" style="background:none;box-shadow:none;">
-                        <img src="github_stat.jpeg" alt="GitHub Stats Fallback" class="github-stats-fallback"
+                        <!-- fallback 和真正的 GitHub Stats 图 -->
+                        <img id="github-stats-fallback" src="github_stat_en.jpeg" alt="GitHub Stats 备用图"
                              style="display:block;box-shadow:none;border:none;background:none;">
-                        <img src="https://github-readme-stats.vercel.app/api?username=XinhanWang&theme=tokyonight&hide_border=true"
+                        <img id="github-stats" src="https://github-readme-stats.vercel.app/api?username=XinhanWang&theme=tokyonight&hide_border=true"
                              alt="GitHub Stats"
                              style="box-shadow:none;border:none;background:none;display:none;"
-                             loading="lazy"
-                             onload="this.style.display='block';this.previousElementSibling.style.display='none';"
-                             onerror="this.style.display='none';this.previousElementSibling.style.display='block';">
+                             loading="lazy">
                     </div>
                     <div class="stat-card" style="background:none;box-shadow:none;">
                         <img src="https://api.star-history.com/svg?repos=XinhanWang/XinhanWang&type=Date&theme=dark"
@@ -305,4 +304,3 @@
     </script>
 </body>
 </html>
-``` 
