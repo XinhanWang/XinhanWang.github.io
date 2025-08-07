@@ -116,4 +116,84 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 100);
     }
+
+    // 移动端元素大小优化
+    function optimizeMobileLayout() {
+        if (window.innerWidth <= 768) {
+            // research-tag 比 research-focus 小
+            const researchTags = document.querySelectorAll('.research-tag');
+            const researchFocus = document.querySelectorAll('.research-focus');
+
+            researchTags.forEach(tag => {
+                tag.style.fontSize = '0.85rem';
+                tag.style.padding = '6px 12px';
+                tag.style.margin = '4px';
+            });
+
+            researchFocus.forEach(focus => {
+                focus.style.fontSize = '1rem';
+                focus.style.padding = '8px 16px';
+            });
+
+            // 放大 skill-category
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach(category => {
+                category.style.transform = 'scale(1.1)';
+                category.style.margin = '20px 10px';
+            });
+
+            // 缩小 stats-grid 中的 stat-card
+            const statCards = document.querySelectorAll('.stats-grid .stat-card');
+            statCards.forEach(card => {
+                card.style.transform = 'scale(0.9)';
+                card.style.margin = '10px 5px';
+            });
+
+            // 放大 lottie-footer 动图
+            const lottieFooter = document.querySelector('.lottie-footer');
+            if (lottieFooter) {
+                lottieFooter.style.transform = 'scale(1.3)';
+                lottieFooter.style.margin = '30px auto';
+            }
+        } else {
+            // 桌面端恢复默认样式
+            const researchTags = document.querySelectorAll('.research-tag');
+            const researchFocus = document.querySelectorAll('.research-focus');
+            const skillCategories = document.querySelectorAll('.skill-category');
+            const statCards = document.querySelectorAll('.stats-grid .stat-card');
+            const lottieFooter = document.querySelector('.lottie-footer');
+
+            researchTags.forEach(tag => {
+                tag.style.fontSize = '';
+                tag.style.padding = '';
+                tag.style.margin = '';
+            });
+
+            researchFocus.forEach(focus => {
+                focus.style.fontSize = '';
+                focus.style.padding = '';
+            });
+
+            skillCategories.forEach(category => {
+                category.style.transform = '';
+                category.style.margin = '';
+            });
+
+            statCards.forEach(card => {
+                card.style.transform = '';
+                card.style.margin = '';
+            });
+
+            if (lottieFooter) {
+                lottieFooter.style.transform = '';
+                lottieFooter.style.margin = '';
+            }
+        }
+    }
+
+    // 初始化移动端布局优化
+    optimizeMobileLayout();
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', optimizeMobileLayout);
 });
