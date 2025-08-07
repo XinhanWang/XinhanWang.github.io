@@ -756,7 +756,7 @@ body {
     }
     /* 减小移动端stats-grid中的垂直间距 */
     .stats-grid {
-        gap: 1.2rem !important;
+        gap: 0.2rem !important;
     }
     
     /* 放大"让我们一起创造精彩！" */
@@ -1013,12 +1013,12 @@ body {
         box-sizing: border-box;
     }
     .lottie-footer-row > div {
-        width: 42vw !important;
-        height: 42vw !important;
-        min-width: 80px;
-        min-height: 80px;
-        max-width: 150px;
-        max-height: 150px;
+        width: 55vw !important;
+        height: 55vw !important;
+        min-width: 120px;
+        min-height: 120px;
+        max-width: 200px;
+        max-height: 200px;
     }
     .stat-card img {
         max-width: 88vw;
@@ -1297,7 +1297,7 @@ body {
     /* GitHub统计部分横向留白，不要占满页面 */
     .stats-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.2rem !important;
+        gap: 0.2rem !important;
         width: calc(100% - 32px);
         max-width: calc(100% - 32px);
         padding: 0;
