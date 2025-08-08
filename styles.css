@@ -1602,3 +1602,27 @@ a, a:visited, a:hover, a:active {
         height: 160px !important;
     }
 }
+
+/* 移动端覆盖：压缩 GitHub 统计卡片间距 + 放大 Lottie 动图尺寸
+   放在文件末尾，使用更高优先级与 !important 覆盖前面重复声明 */
+@media (max-width: 480px) {
+  /* 压缩 stats-grid 内两个 stat-card 的垂直距离 */
+  #github-stats .stats-grid {
+    gap: 6px !important; /* 进一步减小行距 */
+  }
+  #github-stats .stat-card {
+    margin: 0 !important;                 /* 清除上下外边距 */
+    padding-top: 4px !important;          /* 轻度压缩内边距 */
+    padding-bottom: 4px !important;
+  }
+
+  /* 放大底部 Lottie 动图尺寸（覆盖前面多处声明） */
+  .lottie-footer-row > div {
+    width: 44vw !important;
+    height: 44vw !important;
+    min-width: 140px;
+    min-height: 140px;
+    max-width: 220px;
+    max-height: 220px;
+  }
+}
