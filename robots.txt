@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://wangxinhan.cn/sitemap.xml
