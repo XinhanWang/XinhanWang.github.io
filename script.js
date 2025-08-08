@@ -92,29 +92,46 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // GitHub 统计加载成功/失败切换备用图
+    // GitHub 统计：若 1 秒内未加载成功则显示备用图
     const fb = document.getElementById('github-stats-fallback');
-    const stat = document.getElementById('github-stats');
+    const stat = document.getElementById('github-stats-img');
     if (stat && fb) {
+        let settled = false;
+        let timer;
+
+        function cleanup() {
+            stat.removeEventListener('load', onLoad);
+            stat.removeEventListener('error', onError);
+            if (timer) clearTimeout(timer);
+        }
         function showStat() {
+            if (settled) return;
+            settled = true;
             stat.style.display = 'block';
             fb.style.display = 'none';
+            if (fb.parentNode) fb.parentNode.removeChild(fb);
+            cleanup();
         }
         function showFallback() {
+            if (settled) return;
+            settled = true;
             stat.style.display = 'none';
             fb.style.display = 'block';
+            cleanup();
         }
-        stat.addEventListener('load', showStat);
-        stat.addEventListener('error', showFallback);
+        function onLoad() { showStat(); }
+        function onError() { showFallback(); }
 
-        // 兼容图片已缓存的情况（延迟检查，避免跨域 naturalWidth 问题）
-        setTimeout(function() {
-            if (stat.complete && stat.naturalHeight !== 0) {
-                showStat();
-            } else if (stat.complete && stat.naturalHeight === 0) {
-                showFallback();
-            }
-        }, 100);
+        stat.addEventListener('load', onLoad);
+        stat.addEventListener('error', onError);
+
+        if (stat.complete) {
+            // 若图片已缓存，立即判断尺寸是否有效
+            (stat.naturalWidth > 0) ? showStat() : showFallback();
+        } else {
+            // 1 秒超时未加载成功则走备用图
+            timer = setTimeout(showFallback, 1000);
+        }
     }
 
     // 移动端元素大小优化
