@@ -1108,6 +1108,19 @@ body {
     .hamburger span {
         transition: all 0.3s;
     }
+
+    /* 移动端 Skills 三卡片自动居中（终端覆盖） */
+    .skills-grid {
+        display: grid !important;                 /* 统一为单列网格，避免 flex/grid 冲突 */
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;         /* 网格项水平居中 */
+        align-items: stretch !important;
+    }
+    .skills-grid > .skill-category {
+        width: 100% !important;                   /* 小屏占满，仍居中 */
+        max-width: 640px !important;              /* 宽屏手机/平板自动留白 */
+        margin: 0 auto !important;                /* 双保险，确保居中 */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1695,5 +1708,30 @@ img, video {
     min-height: 0 !important;
     max-width: calc((100% - 16px) / 3) !important;  /* 防止超出 */
     max-height: none !important;
+  }
+}
+
+/* Skills 移动端：修复右侧圆角被裁切/贴边不明显的问题（终端覆盖） */
+@media (max-width: 768px) {
+  .skills-grid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: visible !important; /* 避免圆角与阴影被裁切 */
+    box-sizing: border-box;
+  }
+  .skill-category {
+    border-radius: 12px !important; /* 略加圆角，提升视觉 */
+    /* 保持已有阴影，无需再额外设置 */
+  }
+}
+
+/* 超小屏再覆盖一次，避免被上文 calc 宽度干扰 */
+@media (max-width: 480px) {
+  .skills-grid {
+    width: 100% !important;       /* 覆盖 calc(100% - 32px) 等声明 */
+    max-width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: visible !important;
   }
 }
