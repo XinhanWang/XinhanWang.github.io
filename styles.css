@@ -1626,3 +1626,74 @@ a, a:visited, a:hover, a:active {
     max-height: 220px;
   }
 }
+
+/* 确保媒体不超出容器宽度 */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 终端覆盖：移动端最终修复（放在文件末尾，使用更高优先级与 !important） */
+@media (max-width: 768px) {
+  /* Lottie 行容器允许换行，防止横向溢出 */
+  .lottie-footer-row {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 0 8px !important;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Lottie 子项两列布局，等比正方形，完全覆盖之前的固定宽高与最小/最大限制 */
+  .lottie-footer-row > div {
+    flex: 0 1 calc(50% - 12px) !important;
+    width: calc(50% - 12px) !important;
+    aspect-ratio: 1 / 1 !important;   /* 维持方形，随宽度自适应高度 */
+    height: auto !important;          /* 覆盖内联 height */
+    min-width: 0 !important;          /* 移除不必要的最小宽度 */
+    min-height: 0 !important;
+    max-width: 100% !important;       /* 防止超出 */
+    max-height: none !important;
+  }
+
+  /* GitHub 统计：彻底压缩上下间距，移除卡片固定最小高度 */
+  #github-stats .stats-grid {
+    gap: 2px !important;              /* 进一步减小行距 */
+  }
+  #github-stats .stat-card {
+    min-height: 0 !important;         /* 覆盖全局 260px */
+    padding: 0 !important;            /* 移除多余内边距 */
+    margin: 0 !important;
+    box-shadow: none !important;      /* 保持与内联一致，防止撑高 */
+    background: none !important;
+  }
+  #github-stats .stat-card img {
+    display: block;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* 移动端（≤480px）最终覆盖：三列同排、等比正方形，确保不溢出也不太小 */
+@media (max-width: 480px) {
+  .lottie-footer-row {
+    flex-wrap: nowrap !important;           /* 不换行，三张一行 */
+    gap: 8px !important;                    /* 控制间距，用于宽度计算 */
+    padding: 0 8px !important;              /* 两侧留白，避免贴边 */
+    overflow: hidden;                       /* 防止像素取整导致的1px溢出 */
+  }
+  .lottie-footer-row > div {
+    flex: 0 0 calc((100% - 16px) / 3) !important;  /* 3等分，减去两个gap */
+    width: calc((100% - 16px) / 3) !important;
+    aspect-ratio: 1 / 1 !important;         /* 保持正方形 */
+    height: auto !important;                /* 覆盖内联 height */
+    min-width: 0 !important;                /* 覆盖之前的 min-width 限制 */
+    min-height: 0 !important;
+    max-width: calc((100% - 16px) / 3) !important;  /* 防止超出 */
+    max-height: none !important;
+  }
+}
