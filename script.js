@@ -167,18 +167,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // 放大 lottie-footer 动图
-            const lottieFooter = document.querySelector('.lottie-footer');
-            if (lottieFooter) {
-                lottieFooter.style.transform = 'scale(1.3)';
-                lottieFooter.style.margin = '30px auto';
-            }
+            const lottieFooterRows = document.querySelectorAll('.lottie-footer-row > div');
+            lottieFooterRows.forEach(lottie => {
+                lottie.style.transform = 'scale(1.3)';
+                lottie.style.margin = '30px auto';
+            });
         } else {
             // 桌面端恢复默认样式
             const researchTags = document.querySelectorAll('.research-tag');
             const researchFocus = document.querySelectorAll('.research-focus');
             const skillCategories = document.querySelectorAll('.skill-category');
             const statCards = document.querySelectorAll('.stats-grid .stat-card');
-            const lottieFooter = document.querySelector('.lottie-footer');
+            const lottieFooterRows = document.querySelectorAll('.lottie-footer-row > div');
 
             researchTags.forEach(tag => {
                 tag.style.fontSize = '';
@@ -201,10 +201,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.style.margin = '';
             });
 
-            if (lottieFooter) {
-                lottieFooter.style.transform = '';
-                lottieFooter.style.margin = '';
-            }
+            lottieFooterRows.forEach(lottie => {
+                lottie.style.transform = '';
+                lottie.style.margin = '';
+            });
         }
     }
 
