@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="王心瀚个人主页的评论交流页面">
+    <title>评论交流 - 王心瀚</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@7.x/css/all.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?235cc02d504c6ab0d3d2e261888a74b0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">王心瀚</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#about">关于我</a></li>
+                    <li><a href="index.html#education">教育背景</a></li>
+                    <li><a href="index.html#skills">技能</a></li>
+                    <li><a href="index.html#awards">荣誉</a></li>
+                    <li><a href="index.html#contact">联系</a></li>
+                    <li><a href="comments.html" class="active">评论</a></li>
+                    <li><a href="en.html">English</a></li>
+                </ul>
+                <button class="hamburger" type="button" aria-label="打开菜单">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: 120px;">
+            <div class="container">
+                <h1 class="section-title">评论留言 <i class="fas fa-comment" aria-hidden="true"></i></h1>
+                <div class="comments-intro">
+                    <p>欢迎在这里留下您的想法、建议或问题！我很乐意与大家交流。</p>
+                    <p>评论功能基于 GitHub Issues，您需要有 GitHub 账户才能发表评论。</p>
+                </div>
+                
+                <!-- 返回主页按钮 -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        返回主页
+                    </a>
+                </div>
+
+                <!-- Utterances 评论系统 -->
+                <div class="comments-container">
+                    <script src="https://utteranc.es/client.js"
+                            repo="XinhanWang/XinhanWang.github.io"
+                            issue-term="pathname"
+                            theme="github-light"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="site-stats">
+            <div class="stat-item">
+                <span class="stat-label">本站总访问量</span>
+                <span class="stat-value" id="busuanzi_value_site_pv">加载中...</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">本站访客数</span>
+                <span class="stat-value" id="busuanzi_value_site_uv">加载中...</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">本页访问量</span>
+                <span class="stat-value" id="busuanzi_value_page_pv">加载中...</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">本页访客数</span>
+                <span class="stat-value" id="busuanzi_value_page_uv">加载中...</span>
+            </div>
+        </div>
+        <p>&copy; 2025 王心瀚. 感谢所有支持和鼓励我的人，是你们让我变得更好。💕</p>
+    </footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="script.js"></script>
+
+    <style>
+        .comments-intro {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .comments-container {
+            margin: 30px 0;
+            min-height: 400px;
+        }
+        
+        .nav-menu .active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    </style>
+</body>
+</html>
