@@ -18,8 +18,9 @@
     --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --gradient-alt: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     --github-color: #333;
-    --email-color: #D44638;    /* 调整 email 品牌色，由白色改为 Gmail 红 */
+    --email-color: #D44638;
     --bilibili-color: #00a1d6;
+    --wechat-color: #07c160;
 }
 
 body {
@@ -128,12 +129,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;         /* 适配设备宽度 */
-    height: 100vh;        /* 适配设备高度 */
-    object-fit: cover;    /* 居中裁剪填充 */
-    object-position: center center; /* 居中显示 */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center center;
     z-index: -2;
-    background: #667eea;  /* 视频加载前背景色 */
+    background: #667eea;
 }
 
 .hero-overlay {
@@ -147,7 +148,7 @@ body {
 }
 
 .hero-content {
-    display: flex; /* 改为flex布局 */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -156,7 +157,16 @@ body {
     padding: 0 32px;
     position: relative;
     z-index: 1;
-    text-align: center; /* 居中所有内容 */
+    text-align: center;
+}
+
+.hero-text {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-title {
@@ -189,7 +199,7 @@ body {
 .hero-buttons {
     display: flex;
     gap: 2rem;
-    justify-content: center; /* 居中按钮 */
+    justify-content: center;
     align-items: center;
 }
 
@@ -222,12 +232,6 @@ body {
 .btn-secondary:hover {
     background: white;
     color: var(--primary-color);
-}
-
-.github-stats {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: var(--shadow);
 }
 
 /* Sections */
@@ -363,74 +367,6 @@ body {
     margin: 0 auto;
 }
 
-.skills-grid .skill-tags {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    width: 100%;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    min-width: 120px;
-    max-width: 220px;
-    margin: 0 auto;
-    padding: 0.5rem 0;
-}
-
-/* 新增：技能项内链接样式 */
-.skill-item > a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
-    justify-content: center;
-}
-
-.skill-icon {
-    font-size: 3.2rem;
-    margin: 1rem;
-    color: var(--primary-color);
-}
-
-/* PyTorch 图标样式 */
-.pytorch-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
-    color: #EE4C2C;
-    position: relative;
-}
-
-.pytorch-icon::before {
-    content: "🔥";
-    font-size: 2.5rem;
-}
-
-/* Git 图标样式 */
-.git-icon {
-    font-size: 2.5rem;
-    margin: 0.5rem;
-    color: #F05032;
-}
-
-.skill-label {
-    margin-top: 0.5rem;
-    font-size: 1.1rem;
-    text-align: center;
-}
-
 .skill-category {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -453,10 +389,6 @@ body {
     font-size: 1.3rem;
 }
 
-.skill-category i {
-    margin-right: 8px;
-}
-
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -466,13 +398,38 @@ body {
     margin-bottom: auto;
 }
 
-.skill-tag {
-    background: var(--gradient);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 600;
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 120px;
+    max-width: 220px;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+}
+
+.skill-item > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    justify-content: center;
+}
+
+.skill-icon {
+    font-size: 3.2rem;
+    margin: 1rem;
+    color: var(--primary-color);
+}
+
+.skill-label {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 /* 编程语言区块：每行两个技能项 */
@@ -546,9 +503,9 @@ body {
 
 .stat-card {
     display: flex;
-    align-items: center; /* 垂直居中图片 */
+    align-items: center;
     justify-content: center;
-    min-height: 260px; /* 可根据实际图片高度调整 */
+    min-height: 260px;
     width: 100%;
     max-width: 600px;
     border-radius: 15px;
@@ -562,18 +519,6 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-}
-
-/* 点赞按钮自动居中 */
-.likebtn-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 100%;
-    /* 兼容性：防止父容器宽度限制导致不居中 */
-    box-sizing: border-box;
 }
 
 /* Contact */
@@ -597,9 +542,10 @@ body {
 }
 
 .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: 100%;
 }
 
 .contact-link {
@@ -631,31 +577,30 @@ body {
     font-size: 1.2rem;
 }
 
-.contact-link .fa-bilibili {
-    font-size: 1.3rem;
-}
-
-/* 品牌色仅应用于图标和文字，保持背景统一 */
+/* 品牌色应用于图标和文字 */
 .contact-link.github i,
 .contact-link.github span {
-    color: var(--github-color) !important;
+    color: var(--github-color);
 }
+
 .contact-link.email i,
 .contact-link.email span {
-    color: var(--email-color) !important;
+    color: var(--email-color);
 }
+
 .contact-link.bilibili i,
 .contact-link.bilibili span {
-    color: var(--bilibili-color) !important;
+    color: var(--bilibili-color);
 }
+
 .contact-link.wechat i,
 .contact-link.wechat span {
-    color: #07c160 !important;
+    color: var(--wechat-color);
 }
 
 /* Modal（微信二维码弹窗）样式 */
 .modal {
-    display: none; /* 默认隐藏，由 JS 控制显示 */
+    display: none;
     position: fixed;
     inset: 0;
     z-index: 12000;
@@ -673,7 +618,6 @@ body {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
 }
 
@@ -720,18 +664,6 @@ body {
     margin-top: 8px;
 }
 
-/* 小屏适配 */
-@media (max-width: 480px) {
-    .modal-content {
-        max-width: 96%;
-        padding: 14px;
-        border-radius: 10px;
-    }
-    #wechat-qr {
-        width: 86%;
-    }
-}
-
 /* Footer */
 .footer {
     background: var(--text-color);
@@ -750,1104 +682,19 @@ body {
 }
 
 .lottie-footer-row > div {
-    /* 保证动画容器宽高一致，去除 margin */
     width: 160px;
     height: 160px;
 }
 
-/* Responsive Design */
-@media (max-width: 1280px) {
-    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
-        max-width: 98vw;
-        padding: 0 12px;
-    }
-}
-
-/* 明确区分桌面端和平板/移动端 */
-@media (min-width: 1025px) {
-    /* 桌面端样式 */
-    .hamburger {
-        display: none !important;
-    }
-    .nav-menu {
-        display: flex !important;
-    }
-}
-
-@media (max-width: 1024px) {
-    /* 确保平板设备显示正确，但不会影响桌面端 */
-    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
-        max-width: 98vw;
-        padding: 0 8px;
-    }
-    .section {
-        padding: 56px 0;
-    }
-    .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-        padding-left: 0;
-        border-left: none;
-        background: none;
-        border-radius: 0;
-        text-align: center;
-    }
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    .btn {
-        font-size: 1rem;
-        padding: 12px 28px;
-    }
-    .lottie-footer-row > div {
-        width: 120px;
-        height: 120px;
-    }
-    /* 保持卡片风格一致，仅缩小padding */
-    .skill-category, .award-card, .stat-card {
-        padding: 1.5rem;
-        font-size: 1rem;
-    }
-    .timeline-content {
-        padding: 1.2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    /* 放大 编程语言、深度学习、工具 对应的标题 */
-    .skill-category h3 {
-        font-size: 1.5rem !important;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    
-    /* 放大 国家奖学金、本科特优生、学习优秀奖学金、机器人大赛二等奖 */
-    .award-card h3 {
-        font-size: 1.5rem !important;
-        font-weight: 700;
-        margin-bottom: 0.7rem;
-    }
-    
-    /* 缩小GitHub统计下面的两张统计数据卡片 */
-    .stat-card img {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .stat-card {
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        box-sizing: border-box;
-    }
-    /* 减小移动端stats-grid中的垂直间距 */
-    .stats-grid {
-        gap: 0.2rem !important;
-    }
-    
-    /* 放大"让我们一起创造精彩！" */
-    .contact-info h3 {
-        font-size: 1.8rem !important;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 2vw;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    /* 标题层次感增强 */
-    .section {
-        padding: 36px 0;
-    }
-    .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.2rem;
-        text-align: center;
-        padding-left: 0;
-        border-left: none;
-        background: none;
-        border-radius: 0;
-    }
-    .section-title i {
-        font-size: 1.1em;
-        margin-left: 0.5em;
-        color: var(--primary-color);
-    }
-    .about-content, .contact-content {
-        padding: 0 2vw;
-        text-align: center;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .about-text p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-    .research-focus {
-        padding: 0.8rem;
-        border-radius: 10px;
-        font-size: 0.98rem;
-        margin-bottom: 1rem;
-    }
-    .research-focus h3 {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-    }
-    .research-tag {
-        font-size: 0.95rem;
-        padding: 5px 12px;
-        border-radius: 14px;
-    }
-
-    /* Hero区块优化 */
-    .hero-content {
-        padding: 0 2vw;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .hero-title {
-        font-size: 1.7rem;
-        font-weight: 700;
-        margin-bottom: 0.7rem;
-        text-align: center;
-        width: 100%;
-    }
-    .highlight {
-        font-weight: 900;
-    }
-    .hero-subtitle {
-        font-size: 1.08rem;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        text-align: center;
-        width: 100%;
-    }
-    .hero-description {
-        font-size: 0.98rem;
-        margin-bottom: 0.8rem;
-        text-align: center;
-        width: 100%;
-    }
-    .hero-buttons {
-        gap: 0.7rem;
-        width: 100%;
-        justify-content: center;
-    }
-    .btn {
-        font-size: 0.98rem;
-        padding: 10px 18px;
-        border-radius: 30px;
-        min-width: 90px;
-        width: auto;
-        margin-right: 0.3rem;
-    }
-
-    /* 技能、荣誉、统计卡片铺满屏幕 */
-    .skills-grid, .awards-grid, .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        margin: 0 auto;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .skill-category {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        border-radius: 10px;
-        margin: 0 auto;
-        padding: 1rem 2vw;
-        font-size: 0.98rem;
-        box-sizing: border-box;
-        overflow: hidden;
-        /* 移除过大的缩放 */
-    }
-    .award-card {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        border-radius: 10px;
-        margin: 0 auto;
-        padding: 1rem 1vw;
-        font-size: 0.98rem;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .stat-card {
-        width: 100%;
-        min-width: 0;
-        max-width: 92vw;
-        border-radius: 10px;
-        margin: 0 auto;
-        padding: 0.5rem 2vw;
-        font-size: 0.98rem;
-        /* 移除缩放，使用合理尺寸 */
-    }
-    .skill-category h3, .award-card h3 {
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-    .skill-tags {
-        gap: 0.7rem !important;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-    .skill-item {
-        min-width: 70px;
-        max-width: 100%;
-        width: 100%;
-        padding: 0.2rem 0;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .skill-label {
-        font-size: 0.98rem;
-        font-weight: 600;
-        margin-top: 0.2rem;
-        text-align: center;
-        width: 100%;
-    }
-    .skill-icon, .award-icon {
-        font-size: 1.5rem !important;
-        margin: 0.2rem !important;
-    }
-
-    /* Timeline 优化 */
-    .timeline {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 2vw;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .timeline-content {
-        width: 100%;
-        min-width: 0;
-        border-radius: 8px;
-        padding: 0.8rem 1vw;
-        font-size: 0.98rem;
-        margin-bottom: 0.8rem;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-    .timeline-content h3 {
-        font-size: 1.02rem;
-        font-weight: 700;
-    }
-    .timeline-content h4 {
-        font-size: 0.95rem;
-        font-weight: 600;
-    }
-    .timeline-date {
-        font-size: 0.92rem;
-    }
-
-    /* 联系方式区块优化 */
-    .contact-info h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-    .contact-info p {
-        font-size: 0.98rem;
-        margin-bottom: 0.7rem;
-        text-align: center;
-    }
-    .contact-links {
-        flex-direction: row;
-        gap: 0.5rem;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-    .contact-link {
-        font-size: 0.98rem;
-        padding: 0.7rem 1.2rem;
-        border-radius: 20px;
-        min-width: 70px;
-        width: auto;
-        font-weight: 600;
-    }
-
-    /* Lottie动画、图片自适应 */
-    .lottie-footer-row {
-        flex-direction: row;
-        gap: 10px;
-        margin-top: 12px;
-        margin-bottom: 0;
-        width: 100%;
-        max-width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 0 16px;
-        box-sizing: border-box;
-    }
-    .lottie-footer-row > div {
-        width: 55vw !important;
-        height: 55vw !important;
-        min-width: 120px;
-        min-height: 120px;
-        max-width: 200px;
-        max-height: 200px;
-    }
-    .stat-card img {
-        max-width: 88vw;
-        width: 88vw;
-        height: auto;
-        border-radius: 8px;
-        margin: 0 auto;
-        display: block;
-    }
-
-    /* Footer 优化 */
-    .footer {
-        font-size: 0.98rem;
-        padding: 0.8rem 0;
-        background: var(--primary-color);
-        color: #fff;
-        border-radius: 0;
-        margin-top: 0.8rem;
-    }
-
-    /* 汉堡菜单适配 */
-    .hamburger {
-        display: flex;
-        z-index: 1101;
-    }
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        max-width: 100%;
-        background: rgba(255,255,255,0.98);
-        flex-direction: column;
-        gap: 0;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        z-index: 1100;
-        transition: max-height 0.3s ease;
-        max-height: 0;
-        overflow: hidden;
-        border-radius: 0 0 12px 12px;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    .nav-menu.active {
-        display: flex;
-        max-height: 400px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid var(--border-color);
-        animation: navMenuFadeIn 0.3s;
-    }
-    .nav-menu li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-    .nav-menu li a {
-        display: block;
-        padding: 18px 0;
-        font-size: 1.1rem;
-        color: var(--text-color);
-        border-bottom: 1px solid var(--border-color);
-        background: none;
-        width: 100%;
-        transition: background 0.2s;
-    }
-    .nav-menu li:last-child a {
-        border-bottom: none;
-    }
-    .nav-menu a:hover {
-        background: var(--gradient-alt);
-        color: white;
-    }
-    .nav-container {
-        position: relative;
-    }
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-    .hamburger span {
-        transition: all 0.3s;
-    }
-
-    /* 移动端 Skills 三卡片自动居中（终端覆盖） */
-    .skills-grid {
-        display: grid !important;                 /* 统一为单列网格，避免 flex/grid 冲突 */
-        grid-template-columns: 1fr !important;
-        justify-items: center !important;         /* 网格项水平居中 */
-        align-items: stretch !important;
-    }
-    .skills-grid > .skill-category {
-        width: 100% !important;                   /* 小屏占满，仍居中 */
-        max-width: 640px !important;              /* 宽屏手机/平板自动留白 */
-        margin: 0 auto !important;                /* 双保险，确保居中 */
-    }
-}
-
-@media (max-width: 480px) {
-    /* 一级标题更大更粗更突出 */
-    .section-title {
-        font-size: 2.4rem;
-        font-weight: 900;
-        margin-bottom: 1.5rem;
-        letter-spacing: 0.02em;
-        text-align: center;
-        text-shadow: 0 2px 8px rgba(102,126,234,0.08);
-    }
-
-    /* Hero区块主标题极度突出 */
-    .hero-title {
-        font-size: 5.4rem;
-        font-weight: 900;
-        margin-bottom: 1.2rem;
-        line-height: 1.1;
-        letter-spacing: 0.01em;
-        text-shadow: 0 4px 16px rgba(102,126,234,0.18);
-    }
-
-    /* 研究方向卡片下方留白增大，标签更大 */
-    .research-focus {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.2rem;
-    }
-    .research-tag {
-        font-size: 1rem;
-        padding: 6px 16px;
-        border-radius: 16px;
-        margin-top: 0.7rem;
-        display: inline-block;
-    }
-
-    /* 教育背景时间轴：圆点垂直居中 */
-    .timeline {
-        padding-left: 10px;
-    }
-    .timeline::before {
-        left: 18px;
-        transform: none;
-        width: 3px;
-        background: var(--gradient);
-    }
-    .timeline-item {
-        flex-direction: row !important;
-        align-items: flex-start;
-        margin-bottom: 2.2rem;
-        position: relative;
-    }
-    .timeline-marker {
-        left: 10px;
-        transform: none;
-        position: absolute;
-        top: 50%;
-        margin-top: 0;
-        transform: translateY(-50%);
-    }
-    .timeline-content {
-        width: calc(100% - 70px) !important;
-        min-width: 0;
-        margin-left: 38px;
-        border-radius: 10px;
-        padding: 1rem 1vw;
-        font-size: 1.08rem;
-        box-shadow: var(--shadow);
-        margin-bottom: 0.7rem;
-        text-align: left;
-        position: relative;
-        box-sizing: border-box;
-        overflow: hidden;
-        max-width: calc(100% - 70px);
-    }
-
-    /* 技术技能区块：每个skill-category垂直排列，单列显示 */
-    .skills-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.2rem !important;
-        width: calc(100% - 32px);
-        max-width: calc(100% - 32px);
-        padding: 0;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    .skill-category {
-        width: 100% !important;
-        margin: 0 auto 0.7rem auto;
-        padding: 0.7rem 0.2vw;
-        font-size: 1.05rem;
-        border-radius: 8px;
-    }
-    .skill-tags {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 0.7rem !important;
-        width: 100%;
-        justify-items: center;
-        align-items: start;
-    }
-
-    /* 技能区块：两列布局，图标放大，减少空白 */
-    .skills-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 0.7rem !important;
-        width: calc(100% - 32px);
-        max-width: calc(100% - 32px);
-        padding: 0;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    .skill-category {
-        padding: 0.7rem 0.2vw;
-        font-size: 1.05rem;
-        border-radius: 8px;
-        margin-bottom: 0.7rem;
-    }
-    .skill-tags {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 0.7rem !important;
-        width: 100%;
-        justify-items: center;
-        align-items: start;
-    }
-    .skill-item {
-        min-width: 0;
-        max-width: 100vw;
-        width: 100%;
-        padding: 0.2rem 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .skill-icon, .award-icon {
-        font-size: 2.3rem !important;
-        margin: 0.2rem !important;
-    }
-    .skill-label {
-        font-size: 1.08rem;
-        font-weight: 600;
-        margin-top: 0.2rem;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* 底部动图放大 */
-    .lottie-footer-row > div {
-        width: 48vw !important;
-        height: 48vw !important;
-        min-width: 80px;
-        min-height: 80px;
-        max-width: 160px;
-        max-height: 160px;
-    }
-
-    /* Hero主标题极度放大，宽度0.75页面，居中 */
-    .hero-title {
-        font-size: 8vw; /* 约38px~40px，随屏幕自适应 */
-        font-weight: 900;
-        margin-bottom: 1.2rem;
-        line-height: 1.1;
-        letter-spacing: 0.01em;
-        text-shadow: 0 4px 16px rgba(102,126,234,0.18);
-        max-width: calc(100% - 32px);
-        width: calc(100% - 32px);
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        word-break: break-all;
-        box-sizing: border-box;
-    }
-
-    /* 一级标题再放大 */
-    .section-title {
-        font-size: 2.9rem;
-        font-weight: 900;
-        margin-bottom: 1.7rem;
-        letter-spacing: 0.02em;
-        text-align: center;
-        text-shadow: 0 2px 8px rgba(102,126,234,0.08);
-        line-height: 1.18;
-    }
-
-    /* GitHub统计部分横向留白，不要占满页面 */
-    .stats-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0.2rem !important;
-        width: calc(100% - 32px);
-        max-width: calc(100% - 32px);
-        padding: 0;
-        justify-items: center;
-        align-items: center;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    .stat-card {
-        max-width: 92vw !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        border-radius: 15px;
-        box-shadow: var(--shadow);
-        background: var(--card-bg);
-        padding: 0.5rem 0;
-    }
-    .stat-card img {
-        max-width: calc(100% - 32px) !important;
-        width: calc(100% - 32px) !important;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        border-radius: 10px;
-        overflow: hidden;
-        box-sizing: border-box;
-    }
-
-    /* 底部动图放大一倍 */
-    .lottie-footer-row > div {
-        width: 76vw !important;
-        height: 76vw !important;
-        min-width: 120px;
-        min-height: 120px;
-        max-width: 240px;
-        max-height: 240px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 900px) {
-    /* 平板和小型笔记本设备样式 */
-    .section-title {
-        font-size: 2.2rem;
-        font-weight: 900;
-    }
-    .hero-title {
-        font-size: 3.2rem;
-        font-weight: 900;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1.2rem !important;
-    }
-    .skill-icon, .award-icon {
-        font-size: 2.7rem !important;
-    }
-    .lottie-footer-row > div {
-        width: 28vw !important;
-        height: 28vw !important;
-        min-width: 80px;
-        min-height: 80px;
-        max-width: 160px;
-        max-height: 160px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* 仅适用于真正的移动设备 */
-    .section-title {
-        font-size: 1.25rem;
-        margin-bottom: 1.1rem;
-    }
-    .hero-content {
-        min-height: 70vh;
-        padding-top: 10vw;
-        padding-bottom: 10vw;
-        justify-content: center;
-    }
-    .hero-title {
-        font-size: 2.1rem;
-        margin-bottom: 1.1rem;
-        line-height: 1.25;
-    }
-    .hero-subtitle {
-        font-size: 1.25rem;
-        margin-bottom: 0.7rem;
-    }
-    .hero-description {
-        font-size: 1.08rem;
-        margin-bottom: 1.2rem;
-        line-height: 1.7;
-    }
-    .hero-buttons {
-        gap: 1.1rem;
-        margin-top: 0.7rem;
-    }
-    .btn {
-        font-size: 1.12rem;
-        padding: 14px 0;
-        border-radius: 22px;
-        min-width: 48vw;
-        width: 80vw;
-        max-width: 90vw;
-        margin: 0 0.2rem;
-        box-sizing: border-box;
-        overflow: hidden;
-        text-align: center;
-        box-sizing: border-box;
-    }
-    .about-text p {
-        font-size: 1.08rem;
-        margin-bottom: 1.1rem;
-    }
-    .contact-info h3 {
-        font-size: 1.18rem;
-    }
-    .contact-info p {
-        font-size: 1.05rem;
-    }
-    .nav-menu li a {
-        font-size: 0.95rem;
-        padding: 14px 0;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.2rem;
-    }
-    .hero-subtitle {
-        font-size: 1.4rem;
-        margin-bottom: 0.8rem;
-    }
-    .hero-description {
-        font-size: 1.15rem;
-        margin-bottom: 1.5rem;
-    }
-    .btn {
-        font-size: 1.08rem;
-        padding: 13px 0;
-        min-width: 32vw;
-        width: 60vw;
-        max-width: 80vw;
-    }
-    .nav-menu li a {
-        font-size: 1rem;
-        padding: 16px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .section-title {
-        font-size: 1.08rem;
-        margin-bottom: 0.7rem;
-    }
-    .hero-title {
-        font-size: 1.05rem;
-        margin-bottom: 0.5rem;
-    }
-    .hero-subtitle {
-        font-size: 0.82rem;
-        margin-bottom: 0.4rem;
-    }
-    .hero-description {
-        font-size: 0.8rem;
-        margin-bottom: 0.7rem;
-    }
-    .btn {
-        font-size: 0.78rem;
-        padding: 6px 10px;
-        border-radius: 14px;
-        min-width: 60px;
-    }
-    .skill-category, .award-card, .stat-card {
-        padding: 0.5rem 1vw;
-        font-size: 0.85rem;
-        border-radius: 5px;
-    }
-    .skill-category h3, .award-card h3 {
-        font-size: 0.85rem;
-        margin-bottom: 0.3rem;
-    }
-    .skill-label {
-        font-size: 0.85rem;
-    }
-    .timeline-content {
-        padding: 0.4rem 1vw;
-        font-size: 0.82rem;
-        border-radius: 4px;
-    }
-    .timeline-content h3 {
-        font-size: 0.85rem;
-    }
-    .timeline-content h4 {
-        font-size: 0.8rem;
-    }
-    .timeline-date {
-        font-size: 0.7rem;
-    }
-    .about-text p {
-        font-size: 0.85rem;
-    }
-    .research-focus {
-        font-size: 0.82rem;
-        padding: 0.3rem;
-        border-radius: 4px;
-    }
-    .contact-info h3 {
-        font-size: 0.92rem;
-    }
-    .contact-info p {
-        font-size: 0.82rem;
-    }
-    .contact-link {
-        font-size: 0.85rem;
-        padding: 0.5rem 0.7rem;
-        border-radius: 10px;
-        min-width: 50px;
-    }
-    .lottie-footer-row > div {
-        width: 28vw !important;
-        height: 28vw !important;
-        min-width: 24px;
-        min-height: 24px;
-        max-width: 40px;
-        max-height: 40px;
-    }
-    .footer {
-        font-size: 0.82rem;
-        padding: 0.5rem 0;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-text {
-    width: 100%;
-    text-align: center; /* 强制居中 */
+/* LikeBtn wrapper */
+.likebtn-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-
-.hero-text > * {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-}
-
-.hero-text > *:nth-child(1) { animation-delay: 0.1s; }
-.hero-text > *:nth-child(2) { animation-delay: 0.2s; }
-.hero-text > *:nth-child(3) { animation-delay: 0.3s; }
-.hero-text > *:nth-child(4) { animation-delay: 0.4s; }
-
-/* 修改：统一所有超链接状态样式，无下划线并继承文本颜色 */
-a, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* 新增：按钮激活和悬停样式 */
-.active-btn .fa-thumbs-up,
-.active-btn .fa-coins,
-.active-btn .fa-star {
-    color: #00A1D6 !important;
-}
-#like-btn:hover .fa-thumbs-up,
-#coin-btn:hover .fa-coins,
-#fav-btn:hover .fa-star,
-#share-btn:hover .fa-share {
-    color: #00A1D6 !important;
-}
-
-@keyframes navMenuFadeIn {
-    from { opacity: 0; transform: translateY(-20px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-
-/* 手机端优化：英雄标题、一级标题和底部 Lottie 动画放大 */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.4rem !important;
-        font-weight: 900 !important;
-    }
-    .section-title {
-        font-size: 1.8rem !important;
-        font-weight: 900 !important;
-    }
-    .lottie-footer-row > div {
-        width: 160px !important;
-        height: 160px !important;
-    }
-}
-
-/* 移动端覆盖：压缩 GitHub 统计卡片间距 + 放大 Lottie 动图尺寸
-   放在文件末尾，使用更高优先级与 !important 覆盖前面重复声明 */
-@media (max-width: 480px) {
-  /* 压缩 stats-grid 内两个 stat-card 的垂直距离 */
-  #github-stats .stats-grid {
-    gap: 6px !important; /* 进一步减小行距 */
-  }
-  #github-stats .stat-card {
-    margin: 0 !important;                 /* 清除上下外边距 */
-    padding-top: 4px !important;          /* 轻度压缩内边距 */
-    padding-bottom: 4px !important;
-  }
-
-  /* 放大底部 Lottie 动图尺寸（覆盖前面多处声明） */
-  .lottie-footer-row > div {
-    width: 44vw !important;
-    height: 44vw !important;
-    min-width: 140px;
-    min-height: 140px;
-    max-width: 220px;
-    max-height: 220px;
-  }
-}
-
-/* 确保媒体不超出容器宽度 */
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 终端覆盖：微信按钮仅图标与文字使用微信绿，其余样式与其它按钮一致 */
-.contact-link.wechat {
-    background: var(--gradient) !important;
-    color: #07c160 !important;
-}
-.contact-link.wechat .fa-weixin {
-    color: #07c160 !important;
-}
-
-/* 若需悬停依旧轻微上浮，颜色保持 */
-.contact-link.wechat:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
-
-/* 可选：在深色背景下提升可读性（根据需要保留/删除） */
-@supports (color: color-mix(in srgb, #000, #fff)) {
-  .contact-link.wechat {
-    text-shadow: 0 0 4px color-mix(in srgb, #07c160 40%, transparent);
-  }
-}
-
-/* 终端覆盖：移动端最终修复（放在文件末尾，使用更高优先级与 !important） */
-@media (max-width: 768px) {
-  /* Lottie 行容器允许换行，防止横向溢出 */
-  .lottie-footer-row {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 0 8px !important;
+    align-items: center;
+    margin: 24px auto 0 auto;
+    text-align: center;
+    width: 100%;
     box-sizing: border-box;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Lottie 子项两列布局，等比正方形，完全覆盖之前的固定宽高与最小/最大限制 */
-  .lottie-footer-row > div {
-    flex: 0 1 calc(50% - 12px) !important;
-    width: calc(50% - 12px) !important;
-    aspect-ratio: 1 / 1 !important;   /* 维持方形，随宽度自适应高度 */
-    height: auto !important;          /* 覆盖内联 height */
-    min-width: 0 !important;          /* 移除不必要的最小宽度 */
-    min-height: 0 !important;
-    max-width: 100% !important;       /* 防止超出 */
-    max-height: none !important;
-  }
-
-  /* GitHub 统计：彻底压缩上下间距，移除卡片固定最小高度 */
-  #github-stats .stats-grid {
-    gap: 2px !important;              /* 进一步减小行距 */
-  }
-  #github-stats .stat-card {
-    min-height: 0 !important;         /* 覆盖全局 260px */
-    padding: 0 !important;            /* 移除多余内边距 */
-    margin: 0 !important;
-    box-shadow: none !important;      /* 保持与内联一致，防止撑高 */
-    background: none !important;
-  }
-  #github-stats .stat-card img {
-    display: block;
-    margin: 0 auto !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-}
-
-/* 移动端（≤480px）最终覆盖：三列同排、等比正方形，确保不溢出也不太小 */
-@media (max-width: 480px) {
-  .lottie-footer-row {
-    flex-wrap: nowrap !important;           /* 不换行，三张一行 */
-    gap: 8px !important;                    /* 控制间距，用于宽度计算 */
-    padding: 0 8px !important;              /* 两侧留白，避免贴边 */
-    overflow: hidden;                       /* 防止像素取整导致的1px溢出 */
-  }
-  .lottie-footer-row > div {
-    flex: 0 0 calc((100% - 16px) / 3) !important;  /* 3等分，减去两个gap */
-    width: calc((100% - 16px) / 3) !important;
-    aspect-ratio: 1 / 1 !important;         /* 保持正方形 */
-    height: auto !important;                /* 覆盖内联 height */
-    min-width: 0 !important;                /* 覆盖之前的 min-width 限制 */
-    min-height: 0 !important;
-    max-width: calc((100% - 16px) / 3) !important;  /* 防止超出 */
-    max-height: none !important;
-  }
-}
-
-/* Skills 移动端：修复右侧圆角被裁切/贴边不明显的问题（终端覆盖） */
-@media (max-width: 768px) {
-  .skills-grid {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    overflow: visible !important; /* 避免圆角与阴影被裁切 */
-    box-sizing: border-box;
-  }
-  .skill-category {
-    border-radius: 12px !important; /* 略加圆角，提升视觉 */
-    /* 保持已有阴影，无需再额外设置 */
-  }
-}
-
-/* 超小屏再覆盖一次，避免被上文 calc 宽度干扰 */
-@media (max-width: 480px) {
-  .skills-grid {
-    width: 100% !important;       /* 覆盖 calc(100% - 32px) 等声明 */
-    max-width: 100% !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    overflow: visible !important;
-  }
 }
 
 /* 微信号复制 Toast */
@@ -1865,46 +712,631 @@ img, video {
     z-index: 16000;
     opacity: 0;
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     transition: opacity .3s ease, transform .3s ease;
     pointer-events: none;
     box-shadow: 0 6px 24px rgba(0,0,0,0.25);
 }
+
 #wechat-copy-toast.show {
     opacity: 1;
     transform: translate(-50%, 0);
 }
 
-/* 覆盖：联系我区域按钮两列布局（所有宽度保持 2/row） */
-.contact-links {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.2rem !important;
-    width: 100%;
-}
-.contact-links .contact-link {
-    width: 100% !important;
-    justify-content: center;
+/* 链接样式重置 */
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* 小屏保持两列（防止早前媒体查询再次改回 flex） */
-@media (max-width: 768px) {
-  .contact-links {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 0.9rem !important;
-  }
-  .contact-links .contact-link {
-      padding: 0.9rem 1.1rem !important;
-  }
+/* 媒体不超出容器宽度 */
+img, video {
+    max-width: 100%;
+    height: auto;
 }
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes navMenuFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+.hero-text > * {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-text > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-text > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-text > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-text > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 98vw;
+        padding: 0 12px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .hamburger {
+        display: none !important;
+    }
+    .nav-menu {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 98vw;
+        padding: 0 8px;
+    }
+    .section {
+        padding: 56px 0;
+    }
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 12px 28px;
+    }
+    .lottie-footer-row > div {
+        width: 120px;
+        height: 120px;
+    }
+    .skill-category, .award-card, .stat-card {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    .timeline-content {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-category h3 {
+        font-size: 1.5rem !important;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .award-card h3 {
+        font-size: 1.5rem !important;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.8rem !important;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 0.98rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .container, .hero-content, .skills-grid, .awards-grid, .stats-grid {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 2vw;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .section {
+        padding: 36px 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.08rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .hero-description {
+        font-size: 0.98rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-buttons {
+        gap: 0.7rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        font-size: 0.98rem;
+        padding: 10px 18px;
+        border-radius: 30px;
+        min-width: 90px;
+        width: auto;
+        margin-right: 0.3rem;
+    }
+
+    .skills-grid, .awards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .skill-category, .award-card {
+        width: 100%;
+        border-radius: 10px;
+        margin: 0 auto;
+        padding: 1.5rem 2vw;
+        font-size: 0.98rem;
+    }
+
+    .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        width: 100%;
+        justify-items: center;
+        align-items: start;
+    }
+
+    .skill-item {
+        min-width: 80px;
+        width: 100%;
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-icon, .award-icon {
+        font-size: 1.5rem !important;
+        margin: 0.2rem !important;
+    }
+
+    .skill-label {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
+    }
+
+    .timeline {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 2vw;
+    }
+
+    .timeline-content {
+        width: 100%;
+        border-radius: 8px;
+        padding: 0.8rem 1vw;
+        font-size: 0.98rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .contact-info p {
+        font-size: 0.98rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .contact-links {
+        gap: 0.9rem;
+    }
+
+    .contact-link {
+        font-size: 0.98rem;
+        padding: 0.9rem 1.1rem;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .lottie-footer-row {
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 12px;
+        padding: 0 16px;
+        flex-wrap: wrap;
+    }
+
+    .lottie-footer-row > div {
+        width: 55vw !important;
+        height: 55vw !important;
+        min-width: 120px;
+        min-height: 120px;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .stat-card img {
+        max-width: 88vw;
+        width: 88vw;
+        height: auto;
+        border-radius: 8px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1101;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.98);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        z-index: 1100;
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        max-height: 400px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-color);
+        animation: navMenuFadeIn 0.3s;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 18px 0;
+        font-size: 1.1rem;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        transition: background 0.2s;
+    }
+
+    .nav-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-menu a:hover {
+        background: var(--gradient-alt);
+        color: white;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .hamburger span {
+        transition: all 0.3s;
+    }
+
+    .skills-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        justify-items: center !important;
+        align-items: stretch !important;
+    }
+
+    .skills-grid > .skill-category {
+        width: 100% !important;
+        max-width: 640px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 确保每个技能类别内的技能项以2列网格布局显示 */
+    .skill-category .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
+        justify-items: center;
+        align-items: start;
+        margin-top: 1rem;
+    }
+}
+
 @media (max-width: 480px) {
-  .contact-links {
-      gap: 0.7rem !important;
-  }
-  .contact-links .contact-link {
-      font-size: 0.95rem !important;
-      padding: 0.75rem 0.9rem !important;
-  }
+    .section-title {
+        font-size: 2.4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.02em;
+        text-shadow: 0 2px 8px rgba(102,126,234,0.08);
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+        font-weight: 900;
+        margin-bottom: 1.2rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-shadow: 0 4px 16px rgba(102,126,234,0.18);
+        max-width: calc(100% - 32px);
+        width: calc(100% - 32px);
+        text-align: center;
+        word-break: break-all;
+    }
+
+    .research-focus {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .research-tag {
+        font-size: 1rem;
+        padding: 6px 16px;
+        border-radius: 16px;
+        margin-top: 0.7rem;
+        display: inline-block;
+    }
+
+    .timeline {
+        padding-left: 10px;
+    }
+
+    .timeline::before {
+        left: 18px;
+        transform: none;
+        width: 3px;
+        background: var(--gradient);
+    }
+
+    .timeline-item {
+        flex-direction: row !important;
+        align-items: flex-start;
+        margin-bottom: 2.2rem;
+        position: relative;
+    }
+
+    .timeline-marker {
+        left: 10px;
+        transform: none;
+        position: absolute;
+        top: 50%;
+        margin-top: 0;
+        transform: translateY(-50%);
+    }
+
+    .timeline-content {
+        width: calc(100% - 70px) !important;
+        margin-left: 38px;
+        border-radius: 10px;
+        padding: 1rem 1vw;
+        font-size: 1.08rem;
+        text-align: left;
+        position: relative;
+        max-width: calc(100% - 70px);
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+        width: calc(100% - 32px);
+        max-width: calc(100% - 32px);
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .skill-category {
+        padding: 1.2rem 1vw;
+        font-size: 1.05rem;
+        border-radius: 8px;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+        width: 100%;
+        justify-items: center;
+        align-items: start;
+        margin-top: 1rem;
+    }
+
+    .skill-item {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
+        padding: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-icon, .award-icon {
+        font-size: 2.3rem !important;
+        margin: 0.2rem !important;
+    }
+
+    .skill-label {
+        font-size: 1.08rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+        width: calc(100% - 32px);
+        max-width: calc(100% - 32px);
+        padding: 0;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .stat-card {
+        max-width: 92vw !important;
+        margin: 0 auto !important;
+        border-radius: 15px;
+        padding: 4px 0;
+        min-height: 0;
+        box-shadow: none;
+        background: none;
+    }
+
+    .stat-card img {
+        max-width: calc(100% - 32px) !important;
+        width: calc(100% - 32px) !important;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .contact-info h3 {
+        font-size: 1.6rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .contact-links {
+        gap: 0.7rem;
+    }
+
+    .contact-link {
+        font-size: 0.95rem;
+        padding: 0.75rem 0.9rem;
+        border-radius: 20px;
+    }
+
+    .lottie-footer-row {
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        padding: 0 8px !important;
+        overflow: hidden;
+    }
+
+    .lottie-footer-row > div {
+        flex: 0 0 calc((100% - 16px) / 3) !important;
+        width: calc((100% - 16px) / 3) !important;
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-width: calc((100% - 16px) / 3) !important;
+        max-height: none !important;
+    }
+
+    .modal-content {
+        max-width: 96%;
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    #wechat-qr {
+        width: 86%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 900px) {
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+        font-weight: 900;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .skill-category .skill-tags {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
+        justify-items: center;
+        align-items: start;
+        margin-top: 1rem;
+    }
+
+    .skill-icon, .award-icon {
+        font-size: 2.7rem !important;
+    }
+
+    .lottie-footer-row > div {
+        width: 28vw !important;
+        height: 28vw !important;
+        min-width: 80px;
+        min-height: 80px;
+        max-width: 160px;
+        max-height: 160px;
+    }
 }
 
