@@ -213,4 +213,125 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 监听窗口大小变化
     window.addEventListener('resize', optimizeMobileLayout);
+
+    // 新增：微信二维码弹窗交互
+    const wechatBtn = document.getElementById('wechat-btn');
+    const wechatModal = document.getElementById('wechat-modal');
+    const wechatOverlay = document.getElementById('wechat-modal-overlay');
+    const wechatClose = document.getElementById('wechat-modal-close');
+
+    function openWeChatModal() {
+        if (!wechatModal) return;
+        wechatModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        copyWeChatId();              // 新增：打开时复制微信号并提示
+        wechatClose && wechatClose.focus();
+    }
+
+    function closeWeChatModal() {
+        if (!wechatModal) return;
+        wechatModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        wechatBtn && wechatBtn.focus();
+    }
+
+    // 新增：通用 Toast（复用原微信 Toast 容器 ID，避免新增 CSS）
+    function showToast(msg) {
+        let toast = document.getElementById('wechat-copy-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'wechat-copy-toast';
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            document.body.appendChild(toast);
+        }
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    // 新增：复制微信号并提示
+    function copyWeChatId() {
+        const wechatId = 'wxhwxh-wxh';
+        const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+        const successMsg = isEnglish ? 'WeChat ID copied' : '微信号已复制';
+        const failMsgPrefix = isEnglish ? 'Copy failed, please add manually: ' : '复制失败，请手动添加: ';
+        function fallbackCopy(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast(successMsg);
+            } catch {
+                showToast(failMsgPrefix + text);
+            }
+        }
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(wechatId)
+                .then(() => showToast(successMsg))
+                .catch(() => fallbackCopy(wechatId));
+        } else {
+            fallbackCopy(wechatId);
+        }
+    }
+
+    if (wechatBtn && wechatModal) {
+        wechatBtn.addEventListener('click', openWeChatModal);
+        wechatClose && wechatClose.addEventListener('click', closeWeChatModal);
+        wechatOverlay && wechatOverlay.addEventListener('click', closeWeChatModal);
+
+        // 按下 Esc 关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && wechatModal.getAttribute('aria-hidden') === 'false') {
+                closeWeChatModal();
+            }
+        });
+    }
+
+    /* 新增：邮箱按钮点击复制邮箱并提示，再打开邮件客户端 */
+    const emailLink = document.querySelector('.contact-link.email');
+    if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+            const href = emailLink.getAttribute('href');
+            const email = '2335718423@qq.com';
+            const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+            const successMsg = isEnglish ? 'Email copied' : '邮箱已复制';
+            const failMsg = isEnglish ? 'Copy failed, email: ' + email : '复制失败，邮箱：' + email;
+
+            e.preventDefault(); // 先复制再跳转
+
+            function fallbackCopy() {
+                try {
+                    const ta = document.createElement('textarea');
+                    ta.value = email;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    showToast(successMsg);
+                } catch {
+                    showToast(failMsg);
+                }
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email)
+                    .then(() => showToast(successMsg))
+                    .catch(() => fallbackCopy());
+            } else {
+                fallbackCopy();
+            }
+
+            // 略微延迟，确保复制优先执行
+            setTimeout(() => { window.location.href = href; }, 120);
+        });
+    }
 });

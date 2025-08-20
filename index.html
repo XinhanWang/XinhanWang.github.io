@@ -243,6 +243,11 @@
                                 <i class="fab fa-bilibili" aria-hidden="true"></i>
                                 <span>哔哩哔哩</span>
                             </a>
+                            <!-- 新增：微信按钮，点击打开二维码弹窗 -->
+                            <button class="contact-link wechat" id="wechat-btn" type="button" aria-haspopup="dialog" aria-controls="wechat-modal">
+                                <i class="fab fa-weixin" aria-hidden="true"></i>
+                                <span>微信</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -273,6 +278,19 @@
         <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
         <!-- LikeBtn.com END -->
   
+    <!-- 新增：微信二维码弹窗（可放在 contact 区块之后，或 body 末尾） -->
+    <div id="wechat-modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="wechat-modal-title">
+      <div class="modal-overlay" id="wechat-modal-overlay"></div>
+      <div class="modal-content" role="document">
+        <button class="modal-close" id="wechat-modal-close" aria-label="关闭微信二维码">✕</button>
+        <h3 id="wechat-modal-title">添加我为微信好友</h3>
+        <div class="modal-body">
+          <img src="微信添加好友.png" alt="微信添加好友二维码" id="wechat-qr">
+          <p class="modal-note">长按二维码识别或使用微信扫一扫添加我为好友</p>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2025 王心瀚. 感谢所有支持和鼓励我的人，是你们让我变得更好。💕</p>
     </footer>

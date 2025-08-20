@@ -640,6 +640,102 @@ body {
     color: var(--bilibili-color) !important;
 }
 
+/* WeChat 按钮颜色 */
+.contact-link.wechat {
+    color: #07c160 !important; /* 微信绿色 */
+    background: linear-gradient(90deg, rgba(7,193,96,0.08), rgba(7,193,96,0.02));
+    border-radius: 50px;
+    padding: 1.05rem 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* WeChat 图标略微放大 */
+.contact-link.wechat .fa-weixin {
+    font-size: 1.25rem;
+    color: #07c160;
+}
+
+/* Modal（微信二维码弹窗）样式 */
+.modal {
+    display: none; /* 默认隐藏，由 JS 控制显示 */
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+    pointer-events: auto;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 420px;
+    width: calc(100% - 32px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    text-align: center;
+    z-index: 12001;
+}
+
+.modal-close {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    border: none;
+    background: transparent;
+    font-size: 1.05rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.modal-body {
+    margin-top: 8px;
+}
+
+#wechat-qr {
+    max-width: 320px;
+    width: 88%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 8px auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.modal-note {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 8px;
+}
+
+/* 小屏适配 */
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 96%;
+        padding: 14px;
+        border-radius: 10px;
+    }
+    #wechat-qr {
+        width: 86%;
+    }
+}
+
 /* Footer */
 .footer {
     background: var(--text-color);
@@ -1646,6 +1742,28 @@ img, video {
   height: auto;
 }
 
+/* 终端覆盖：微信按钮仅图标与文字使用微信绿，其余样式与其它按钮一致 */
+.contact-link.wechat {
+    background: var(--gradient) !important;
+    color: #07c160 !important;
+}
+.contact-link.wechat .fa-weixin {
+    color: #07c160 !important;
+}
+
+/* 若需悬停依旧轻微上浮，颜色保持 */
+.contact-link.wechat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 可选：在深色背景下提升可读性（根据需要保留/删除） */
+@supports (color: color-mix(in srgb, #000, #fff)) {
+  .contact-link.wechat {
+    text-shadow: 0 0 4px color-mix(in srgb, #07c160 40%, transparent);
+  }
+}
+
 /* 终端覆盖：移动端最终修复（放在文件末尾，使用更高优先级与 !important） */
 @media (max-width: 768px) {
   /* Lottie 行容器允许换行，防止横向溢出 */
@@ -1735,3 +1853,96 @@ img, video {
     overflow: visible !important;
   }
 }
+
+/* 微信号复制 Toast */
+#wechat-copy-toast {
+    position: fixed;
+    bottom: 72px;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    background: rgba(0,0,0,0.72);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 32px;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    z-index: 16000;
+    opacity: 0;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: opacity .3s ease, transform .3s ease;
+    pointer-events: none;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+#wechat-copy-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* 覆盖：联系我区域按钮两列布局（所有宽度保持 2/row） */
+.contact-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.2rem !important;
+    width: 100%;
+}
+.contact-links .contact-link {
+    width: 100% !important;
+    justify-content: center;
+}
+
+/* 覆盖：微信按钮与其它按钮保持一致的背景与尺寸 */
+.contact-link.wechat {
+    background: var(--gradient) !important;
+    color: #fff !important;
+    padding: 1.2rem 2.5rem !important;
+}
+.contact-link.wechat .fa-weixin {
+    color: #fff !important;
+}
+
+/* 小屏保持两列（防止早前媒体查询再次改回 flex） */
+@media (max-width: 768px) {
+  .contact-links {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 0.9rem !important;
+  }
+  .contact-links .contact-link {
+      padding: 0.9rem 1.1rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .contact-links {
+      gap: 0.7rem !important;
+  }
+  .contact-links .contact-link {
+      font-size: 0.95rem !important;
+      padding: 0.75rem 0.9rem !important;
+  }
+}
+
+/* ========= WeChat 按钮终端统一覆盖（请放在文件最末尾） ========= */
+.contact-links .contact-link.wechat {
+  background: var(--gradient) !important;      /* 与其它按钮一致的背景 */
+  color: #07c160 !important;                   /* 品牌色文字（如想统一成白色可改为 #fff） */
+  padding: 1.2rem 2.5rem !important;           /* 统一尺寸 */
+  border-radius: 50px !important;              /* 与基类保持一致 */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none;                            /* 保持与其它按钮默认一致 */
+  background-clip: padding-box;
+}
+
+.contact-links .contact-link.wechat .fa-weixin {
+  color: #07c160 !important;                   /* 图标同品牌色；若改白同上调整 */
+  font-size: 1.2rem;                           /* 与其它图标尺寸统一 */
+  line-height: 1;
+}
+
+.contact-links .contact-link.wechat:hover {
+  transform: translateY(-3px);                 /* 与已有 hover 交互一致 */
+  box-shadow: var(--shadow-hover);
+  filter: brightness(1.05);
+}
+/* ============================================================= */
