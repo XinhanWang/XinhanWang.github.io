@@ -942,6 +942,38 @@ body {
         margin: 0 auto;
         display: block;
     }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.98);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        z-index: 1100;
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        border-radius: 0 0 12px 12px;
+        /* 保证触摸滚动行为在移动设备上良好 */
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: auto;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        max-height: calc(100vh - 70px); /* 视口高度减去 header，高度自适应 */
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-color);
+        animation: navMenuFadeIn 0.3s;
+        /* 可垂直滚动，启用 iOS 弹性滚动优化，防止滚动穿透到页面 */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1602,14 +1634,21 @@ img, video {
         max-height: 0;
         overflow: hidden;
         border-radius: 0 0 12px 12px;
+        /* 保证触摸滚动行为在移动设备上良好 */
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: auto;
     }
 
     .nav-menu.active {
         display: flex;
-        max-height: 400px;
+        max-height: calc(100vh - 70px); /* 视口高度减去 header，高度自适应 */
         padding-bottom: 12px;
         border-bottom: 1px solid var(--border-color);
         animation: navMenuFadeIn 0.3s;
+        /* 可垂直滚动，启用 iOS 弹性滚动优化，防止滚动穿透到页面 */
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .nav-menu li {

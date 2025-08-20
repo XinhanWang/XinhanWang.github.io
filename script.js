@@ -2,15 +2,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // 移动端导航菜单切换
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    
+
+    // 使用 position:fixed + top 偏移锁定背景滚动，保留菜单内部滚动
+    function openNav() {
+        hamburger.classList.add('active');
+        navMenu.classList.add('active');
+        const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+        document.body.dataset.scrollY = scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+    }
+    function closeNav() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        const prev = parseInt(document.body.dataset.scrollY || '0', 10);
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        delete document.body.dataset.scrollY;
+        // 恢复原来的滚动位置
+        window.scrollTo(0, prev);
+    }
     hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        // 阻止页面滚动
         if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
+            closeNav();
         } else {
-            document.body.style.overflow = '';
+            openNav();
         }
     });
 
@@ -18,13 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.style.overflow = '';
+                closeNav();
             }
         });
     });
-    
+
+    // 若窗口尺寸从移动切换到桌面，确保关闭移动菜单并恢复滚动
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+            closeNav();
+        }
+    });
+
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
