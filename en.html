@@ -70,6 +70,10 @@ var _hmt = _hmt || [];
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">About Me <i class="fas fa-user" aria-hidden="true"></i></h2>
+                <!-- 生活照移到这里，在标题之后 -->
+                <div class="personal-photo">
+                    <img src="生活照.jpg" alt="Personal photo of Xinhan Wang" loading="lazy" id="personal-photo-img">
+                </div>
                 <div class="about-content">
                     <div class="about-text">
                         <p>I am a PhD student at the School of Artificial Intelligence and Automation, Huazhong University of Science and Technology. I am passionate about programming 💻, always curious about emerging technologies, and eager to learn and take on new challenges.</p>
@@ -273,6 +277,14 @@ var _hmt = _hmt || [];
           </div>
         </div>
   
+        <!-- 生活照放大弹窗 -->
+        <div id="photo-modal" class="photo-modal">
+            <div class="photo-modal-content">
+                <button class="photo-modal-close" id="photo-modal-close">×</button>
+                <img src="生活照.jpg" alt="Personal photo of Xinhan Wang">
+            </div>
+        </div>
+
         <!-- Lottie animation container 并排显示 -->
         <div class="lottie-footer-row">
             <div id="lottie-footer" style="width:120px;height:120px;"></div>
@@ -331,6 +343,38 @@ var _hmt = _hmt || [];
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="stats.js"></script>
     <script>
+      // 生活照放大功能
+      const personalPhoto = document.getElementById('personal-photo-img');
+      const photoModal = document.getElementById('photo-modal');
+      const photoModalClose = document.getElementById('photo-modal-close');
+
+      if (personalPhoto && photoModal && photoModalClose) {
+        personalPhoto.addEventListener('click', () => {
+          photoModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+
+        photoModalClose.addEventListener('click', () => {
+          photoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+
+        photoModal.addEventListener('click', (e) => {
+          if (e.target === photoModal) {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // ESC键关闭
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && photoModal.classList.contains('active')) {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
       lottie.loadAnimation({
         container: document.getElementById('lottie-footer'),
         renderer: 'svg',

@@ -73,6 +73,10 @@ var _hmt = _hmt || [];
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">关于我 <i class="fas fa-user" aria-hidden="true"></i></h2>
+                <!-- 生活照移到这里，在标题之后 -->
+                <div class="personal-photo">
+                    <img src="生活照.jpg" alt="王心瀚的生活照" loading="lazy" id="personal-photo-img">
+                </div>
                 <div class="about-content">
                     <div class="about-text">
                         <p>我是华中科技大学人工智能与自动化学院的博士生，专注于人工智能技术研发与创新。我热爱编程 💻，对新兴技术充满好奇心，始终保持学习的热情，乐于接受新的挑战。</p>
@@ -309,6 +313,14 @@ var _hmt = _hmt || [];
       </div>
     </div>
 
+    <!-- 生活照放大弹窗 -->
+    <div id="photo-modal" class="photo-modal">
+        <div class="photo-modal-content">
+            <button class="photo-modal-close" id="photo-modal-close">×</button>
+            <img src="生活照.jpg" alt="王心瀚的生活照">
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="site-stats">
             <div class="stat-item">
@@ -335,6 +347,38 @@ var _hmt = _hmt || [];
     <!-- 引入 Supabase JS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
+      // 生活照放大功能
+      const personalPhoto = document.getElementById('personal-photo-img');
+      const photoModal = document.getElementById('photo-modal');
+      const photoModalClose = document.getElementById('photo-modal-close');
+
+      if (personalPhoto && photoModal && photoModalClose) {
+        personalPhoto.addEventListener('click', () => {
+          photoModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+
+        photoModalClose.addEventListener('click', () => {
+          photoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+
+        photoModal.addEventListener('click', (e) => {
+          if (e.target === photoModal) {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // ESC键关闭
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && photoModal.classList.contains('active')) {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
       lottie.loadAnimation({
         container: document.getElementById('lottie-footer'),
         renderer: 'svg',

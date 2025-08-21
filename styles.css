@@ -224,14 +224,104 @@ body {
 }
 
 .btn-secondary {
-    background: transparent;
-    color: white;
+    background: white;
+    color: #333;
     border: 2px solid white;
 }
 
 .btn-secondary:hover {
     background: white;
-    color: var(--primary-color);
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary:hover i,
+.btn-secondary:hover span {
+    color: #667eea;
+}
+
+.btn-secondary i,
+.btn-secondary span {
+    color: #333;
+}
+
+/* Hero区域的btn-secondary特殊样式 */
+.hero .btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.hero .btn-secondary:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #667eea;
+    border-color: rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.hero .btn-secondary i,
+.hero .btn-secondary span {
+    color: #667eea;
+}
+
+/* Hero区域的btn-secondary特殊样式 - 镂空效果 */
+.hero .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-weight: 500;
+    backdrop-filter: none;
+}
+
+.hero .btn-secondary:hover {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.hero .btn-secondary i,
+.hero .btn-secondary span {
+    color: white;
+}
+
+.hero .btn-secondary:hover i,
+.hero .btn-secondary:hover span {
+    color: #667eea;
+}
+
+/* Hero区域的btn-primary特殊样式 - 镂空效果，与btn-secondary一致 */
+.hero .btn-primary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-weight: 500;
+}
+
+.hero .btn-primary:hover {
+    background: white;
+    color: #667eea;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.hero .btn-primary i,
+.hero .btn-primary span {
+    color: white;
+}
+
+.hero .btn-primary:hover i,
+.hero .btn-primary:hover span {
+    color: #667eea;
 }
 
 /* Sections */
@@ -261,6 +351,82 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+}
+
+.personal-photo {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.personal-photo img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.personal-photo img:hover {
+    transform: scale(1.05);
+}
+
+/* 生活照放大弹窗样式 */
+.photo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.photo-modal.active {
+    display: flex;
+}
+
+.photo-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-modal img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.photo-modal-close {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.photo-modal-close:hover {
+    background: white;
+    transform: scale(1.1);
 }
 
 .about-text p {
@@ -1970,5 +2136,38 @@ img, video {
 .lottie-footer-row > div {
     width: 160px;
     height: 160px;
+}
+
+/* 生活照样式 */
+.personal-photo {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.personal-photo img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.personal-photo img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .personal-photo img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .personal-photo img {
+        max-width: 200px;
+        border-radius: 10px;
+    }
 }
 
